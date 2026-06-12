@@ -436,6 +436,7 @@ def build_index():
     html_doc += topbar_index()
     html_doc += f"""
 <section class="hero" id="work">
+  <div class="glow"></div>
   <div class="grid-bg"></div>
   <div class="wrap">
     <span class="eyebrow">Squarespace specialist \u00b7 Design &amp; development</span>
@@ -461,12 +462,12 @@ def build_index():
       <p>Everything here is built on Squarespace \u2014 chosen so clients can update their own site without touching code, backed by custom development wherever the platform needs a push.</p>
     </div>
     <div class="svc-grid">
-      <div class="svc"><span class="svc-n">01</span><h3>Custom builds</h3><p>Designed and built from scratch to fit your brand and goals.</p></div>
-      <div class="svc"><span class="svc-n">02</span><h3>Redesigns &amp; refreshes</h3><p>Modernise an existing Squarespace site into something current and credible.</p></div>
-      <div class="svc"><span class="svc-n">03</span><h3>Squarespace eCommerce</h3><p>Stores, product catalogues, checkout and digital products that sell.</p></div>
-      <div class="svc"><span class="svc-n">04</span><h3>Migrations to Squarespace</h3><p>Move cleanly from WordPress, Wix, GoDaddy, HTML and more \u2014 content intact.</p></div>
-      <div class="svc"><span class="svc-n">05</span><h3>HTML / Figma \u2192 Squarespace</h3><p>Pixel-accurate conversion of a developer\u2019s files or a designer\u2019s mockup.</p></div>
-      <div class="svc"><span class="svc-n">06</span><h3>Custom code &amp; SEO</h3><p>CSS/JS where the platform stops, plus schema and on-page SEO to rank.</p></div>
+      <a class="svc" href="#portfolio"><div class="svc-top"><span class="svc-n">01</span><span class="svc-arr">\u2192</span></div><h3>Custom builds</h3><p>Designed and built from scratch to fit your brand and goals.</p></a>
+      <a class="svc" href="#portfolio"><div class="svc-top"><span class="svc-n">02</span><span class="svc-arr">\u2192</span></div><h3>Redesigns &amp; refreshes</h3><p>Modernise an existing Squarespace site into something current and credible.</p></a>
+      <a class="svc" href="#portfolio"><div class="svc-top"><span class="svc-n">03</span><span class="svc-arr">\u2192</span></div><h3>Squarespace eCommerce</h3><p>Stores, product catalogues, checkout and digital products that sell.</p></a>
+      <a class="svc" href="#portfolio"><div class="svc-top"><span class="svc-n">04</span><span class="svc-arr">\u2192</span></div><h3>Migrations to Squarespace</h3><p>Move cleanly from WordPress, Wix, GoDaddy, HTML and more \u2014 content intact.</p></a>
+      <a class="svc" href="#portfolio"><div class="svc-top"><span class="svc-n">05</span><span class="svc-arr">\u2192</span></div><h3>HTML / Figma \u2192 Squarespace</h3><p>Pixel-accurate conversion of a developer\u2019s files or a designer\u2019s mockup.</p></a>
+      <a class="svc" href="#portfolio"><div class="svc-top"><span class="svc-n">06</span><span class="svc-arr">\u2192</span></div><h3>Custom code &amp; SEO</h3><p>CSS/JS where the platform stops, plus schema and on-page SEO to rank.</p></a>
     </div>
     <div class="svc-cta"><a class="cta" href="#portfolio">See all {len(PROJECTS):02d} projects <span class="arr">\u2193</span></a></div>
   </div>

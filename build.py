@@ -366,7 +366,7 @@ def topbar():
 def topbar_index():
     return """<header class="topbar"><div class="wrap">
   <a class="brand" href="index.html"><span class="mark"></span><b>Kalana&nbsp;Square</b><span>&nbsp;/ Work</span></a>
-  <nav><a href="#work">Work</a><span class="tag-pill">Squarespace Design &amp; Dev</span></nav>
+  <nav><a href="#portfolio">Work</a><span class="tag-pill">Squarespace Design &amp; Dev</span></nav>
 </div></header>"""
 
 def footer(rel=""):
@@ -441,6 +441,10 @@ def build_index():
     <span class="eyebrow">Squarespace specialist \u00b7 Design &amp; development</span>
     <h1 class="display">Squarespace websites that look sharp and <span class="u">actually perform.</span></h1>
     <p class="lede">I design and build on Squarespace, end to end \u2014 from a blank Figma file to a live, conversion-ready site, or a tired old site reborn. Every project below is a real client build: hand-crafted where it counts, fast to load, and easy for the owner to manage. Tap any project to open the full case and scroll the live screenshot.</p>
+    <div class="cta-row">
+      <a class="cta" href="#portfolio">Browse the work <span class="arr">\u2193</span></a>
+      <a class="cta ghost" href="#services">What I build</a>
+    </div>
     <div class="stats">
       <div class="stat"><div class="n">350+</div><div class="l">Sites built</div></div>
       <div class="stat"><div class="n">7+ yrs</div><div class="l">Squarespace focus</div></div>
@@ -450,7 +454,7 @@ def build_index():
   </div>
 </section>
 
-<section class="services">
+<section class="services" id="services">
   <div class="wrap">
     <div class="svc-head">
       <span class="eyebrow">What I do on Squarespace</span>
@@ -464,8 +468,11 @@ def build_index():
       <div class="svc"><span class="svc-n">05</span><h3>HTML / Figma \u2192 Squarespace</h3><p>Pixel-accurate conversion of a developer\u2019s files or a designer\u2019s mockup.</p></div>
       <div class="svc"><span class="svc-n">06</span><h3>Custom code &amp; SEO</h3><p>CSS/JS where the platform stops, plus schema and on-page SEO to rank.</p></div>
     </div>
+    <div class="svc-cta"><a class="cta" href="#portfolio">See all {len(PROJECTS):02d} projects <span class="arr">\u2193</span></a></div>
   </div>
-</section><div class="wrap">
+</section>
+
+<div class="toolbar" id="portfolio"><div class="wrap">
   <div class="filters">{chips}</div>
   <span class="count" id="count">{len(PROJECTS):02d} / {len(PROJECTS):02d}</span>
 </div></div>
@@ -477,6 +484,7 @@ def build_index():
 </div></main>
 """
     html_doc += footer("")
+    html_doc += '\n<button class="totop" id="totop" aria-label="Back to top"><span>\u2191</span></button>'
     html_doc += '\n<script src="assets/app.js"></script>\n</body></html>'
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(html_doc)

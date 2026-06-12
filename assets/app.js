@@ -103,6 +103,20 @@
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeLB(); });
   }
 
+  /* ---- floating back-to-top ---- */
+  var totop = document.getElementById("totop");
+  if (totop) {
+    var onScroll = function () {
+      if (window.pageYOffset > 520) totop.classList.add("show");
+      else totop.classList.remove("show");
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    totop.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
   /* ---- keyboard prev/next on project pages ---- */
   document.addEventListener("keydown", function (e) {
     if (e.target && /INPUT|TEXTAREA/.test(e.target.tagName)) return;

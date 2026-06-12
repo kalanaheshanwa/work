@@ -453,9 +453,11 @@ def build_index():
         "",
     )
     html_doc += topbar_index()
-    hv = lambda p: f'<div class="hv-card"><img loading="lazy" src="{hero_url(p["hero"],"640w")}" alt=""></div>'
+    hv = lambda p: f'<a class="hv-card" href="#portfolio"><img loading="lazy" src="{hero_url(p["hero"],"640w")}" alt=""></a>'
     colA = "".join(hv(p) for p in PROJECTS[0::2])
     colB = "".join(hv(p) for p in PROJECTS[1::2])
+    chk = '<svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'
+    arw = '<svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>'
     html_doc += f"""
 <section class="hero" id="work">
   <div class="glow"></div>
@@ -493,61 +495,122 @@ def build_index():
       <p>Whatever your website needs, I handle it end to end \u2014 building a brand-new site, improving or moving an existing one, and getting you found on Google. It\u2019s all built on Squarespace, so it stays easy for you to update yourself.</p>
     </div>
 
-    <div class="bento">
-      <a class="bx bx-design" href="#portfolio">
-        <div class="bx-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 9v12"/></svg></div>
-        <div class="bx-grow"></div>
-        <h3>Custom website design</h3>
-        <p>A premium, made-from-scratch Squarespace site built around your brand \u2014 fast, responsive and ready to turn visitors into customers. The flagship service most clients come for.</p>
-        <div class="bx-chips"><span>Squarespace 7.1</span><span>Mobile-perfect</span><span>Edit it yourself</span></div>
-        <span class="bx-arr">\u2192</span>
-      </a>
+    <div class="services-v2-wrap"><div class="bento-grid">
 
-      <a class="bx bx-seo" href="#portfolio">
-        <div class="bx-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 4 8-8"/><path d="M16 8h5v5"/></svg></div>
-        <span class="bx-tag">Most requested</span>
-        <h3>Get found on Google</h3>
-        <p>Built SEO-first so you rank \u2014 plus standalone audits &amp; optimisation for sites that already exist.</p>
-        <div class="bx-chips"><span>Keywords</span><span>Speed</span><span>Search Console</span><span>Schema</span></div>
-      </a>
-
-      <a class="bx bx-ecom" href="#portfolio">
-        <div class="bx-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></svg></div>
-        <h3>Online stores</h3>
-        <p>Products, checkout and digital downloads that actually sell.</p>
-      </a>
-
-      <a class="bx bx-migrate" href="#portfolio">
-        <div class="bx-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13M14 5l3 3-3 3"/><path d="M20 16H7m3 3-3-3 3-3"/></svg></div>
-        <h3>Move to Squarespace</h3>
-        <p>Switch from WordPress, Wix or GoDaddy \u2014 nothing lost.</p>
-      </a>
-
-      <a class="bx bx-html" href="#portfolio">
-        <div class="bx-html-text">
-          <div class="bx-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg></div>
-          <h3>Your design \u2192 Squarespace</h3>
-          <p>Have a mockup, image or HTML? I rebuild it in Squarespace, matched exactly \u2014 pixel for pixel.</p>
+      <section class="v2c span-7 card-purple">
+        <div class="split-card">
+          <div class="split-left">
+            <div class="card-top"><div class="icon"><svg viewBox="0 0 20 20" fill="none" stroke-width="1.8"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="M3 8h14"/><path d="M7 12h6"/></svg></div></div>
+            <h2 class="title">Custom Squarespace Web Design</h2>
+            <p class="desc">Stop settling for generic templates. Get a high-performing, bespoke Squarespace website designed to rank on Google and convert visitors into loyal customers.</p>
+            <div class="project-meta">
+              <div class="meta-item"><div class="meta-label">Built On</div><div class="meta-val">Squarespace 7.1</div></div>
+              <div class="meta-item"><div class="meta-label">Avg. Timeline</div><div class="meta-val">1 - 2 Weeks</div></div>
+            </div>
+            <a href="#portfolio" class="action-link">See related builds {arw}</a>
+          </div>
+          <div class="split-right"><div class="feature-box">
+            <h3 class="inner-title">What's Included</h3>
+            <div class="checklist">
+              <div class="chk">{chk}<div>A signature design that mirrors your brand\u2019s premium value.</div></div>
+              <div class="chk">{chk}<div>Engineered for visibility and ranking on Google search results.</div></div>
+              <div class="chk">{chk}<div>Lightning-fast performance on every smartphone, tablet and screen.</div></div>
+              <div class="chk">{chk}<div>Simple backend management with 1-on-1 training included.</div></div>
+              <div class="chk">{chk}<div>Seamless connection of your domain, email and tracking.</div></div>
+              <div class="chk">{chk}<div>Post-launch care to ensure your site stays flawless.</div></div>
+            </div>
+          </div></div>
         </div>
-        <div class="bx-slide" aria-hidden="true">
-          <div class="sl sl-a"><span class="sl-k">&lt;/&gt;</span> Your design</div>
-          <div class="sl-arrow">\u2192</div>
-          <div class="sl sl-b"><span class="sl-dot"></span> Live on Squarespace</div>
+      </section>
+
+      <section class="v2c span-5 card-green">
+        <div class="card-top"><div class="icon"><svg viewBox="0 0 20 20" fill="none" stroke-width="1.8"><polyline points="4 16 10 10 14 14 20 6"/><polyline points="14 6 20 6 20 12"/></svg></div></div>
+        <h2 class="title">SEO &amp; Performance</h2>
+        <p class="desc">Get found by the right clients. I deeply optimise your technical structure, page speed and on-page content so your business ranks on page one.</p>
+        <div class="checklist-2col">
+          <div class="chk">{chk}<div>Advanced Keyword &amp; Competitor Research</div></div>
+          <div class="chk">{chk}<div>Google Search Console &amp; Analytics Setup</div></div>
+          <div class="chk">{chk}<div>Deep Meta Tag &amp; Image Alt Optimisation</div></div>
+          <div class="chk">{chk}<div>Page Speed &amp; Core Web Vitals Audit</div></div>
+          <div class="chk">{chk}<div>XML Sitemap &amp; Robots.txt Config</div></div>
+          <div class="chk">{chk}<div>Monthly Performance Reporting</div></div>
         </div>
-      </a>
+        <a href="#portfolio" class="action-link">Boost my rankings {arw}</a>
+      </section>
 
-      <a class="bx bx-redesign" href="#portfolio">
-        <div class="bx-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v5h-5"/></svg></div>
-        <h3>Redesign my old site</h3>
-        <p>Turn a dated, messy site into something modern and credible.</p>
-      </a>
+      <section class="v2c span-5 card-peach">
+        <div class="card-top"><div class="icon"><svg viewBox="0 0 20 20" fill="none" stroke-width="1.8"><path d="M3 6h14v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6z"/><path d="M3 6l2-3h10l2 3"/><path d="M8 10h4"/></svg></div></div>
+        <h2 class="title">eCommerce Solutions</h2>
+        <p class="desc">Premium Squarespace stores crafted specifically to sell. I optimise product pages, integrate payments smoothly and engineer a seamless checkout experience.</p>
+        <div class="tags-row"><span class="tag">Payment Setup</span><span class="tag">Inventory Sync</span><span class="tag">UX Optimised</span></div>
+      </section>
 
-      <a class="bx bx-maintain" href="#portfolio">
-        <div class="bx-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></div>
-        <h3>Care &amp; support</h3>
-        <p>Ongoing edits, updates and monthly health checks.</p>
-      </a>
-    </div>
+      <section class="v2c span-3 card-blue">
+        <div class="card-top"><div class="icon"><svg viewBox="0 0 20 20" fill="none" stroke-width="1.8"><path d="M4 4h12v12H4z"/><path d="M7 8h6M7 11h4"/></svg></div></div>
+        <h2 class="title">Redesign</h2>
+        <p class="desc">Refresh your existing site with a modern look and flawless mobile layout.</p>
+        <div class="ba-graphic">
+          <div class="ba-col"><div class="ba-label before">Before</div><div class="ba-bar before"></div></div>
+          <div class="ba-arrow">\u2192</div>
+          <div class="ba-col"><div class="ba-label after">After</div><div class="ba-bar after"></div></div>
+        </div>
+      </section>
+
+      <section class="v2c span-4 card-yellow">
+        <div class="card-top"><div class="icon"><svg viewBox="0 0 20 20" fill="none" stroke-width="1.8"><path d="M4 16V8l6-5 6 5v8"/><path d="M8 16v-5h4v5"/></svg></div></div>
+        <h2 class="title">Landing Pages</h2>
+        <p class="desc">High-converting standalone pages engineered for ad campaigns or lead generation.</p>
+        <div class="tags-row"><span class="tag">Lead Gen</span><span class="tag">Events</span></div>
+      </section>
+
+      <section class="v2c span-8 card-green">
+        <div class="split-card">
+          <div class="split-left">
+            <div class="card-top"><div class="icon"><svg viewBox="0 0 20 20" fill="none" stroke-width="1.8"><path d="M10 2v16M2 10h16M4 4l12 12M4 16 16 4"/></svg></div></div>
+            <h2 class="title">Maintenance &amp; Support</h2>
+            <p class="desc">Your site is a living thing \u2014 it needs care. Monthly plans that keep everything fast, fresh and secure so you can focus on running your business.</p>
+            <div class="tags-row"><span class="tag">Monthly retainer</span><span class="tag">Priority response</span><span class="tag">No contracts</span></div>
+          </div>
+          <div class="split-right"><div class="feature-box">
+            <h3 class="inner-title">Plan includes</h3>
+            <div class="checklist">
+              <div class="chk">{chk}<div>Unlimited small content edits</div></div>
+              <div class="chk">{chk}<div>Monthly speed &amp; SEO health check</div></div>
+              <div class="chk">{chk}<div>Plugin &amp; platform updates</div></div>
+              <div class="chk">{chk}<div>48-hour priority response guarantee</div></div>
+            </div>
+          </div></div>
+        </div>
+      </section>
+
+      <section class="v2c span-4 card-gray">
+        <div class="card-top"><div class="icon"><svg viewBox="0 0 20 20" fill="none" stroke-width="1.8"><path d="M4 4h6v6H4zM10 10h6v6h-6z"/><path d="M10 4h6M4 10v6"/></svg></div></div>
+        <h2 class="title">Platform Migration</h2>
+        <p class="desc">Seamless migrations from WordPress, Wix or Shopify into Squarespace \u2014 without losing a drop of your SEO juice.</p>
+      </section>
+
+      <section class="v2c span-12 card-blue">
+        <div class="split-card">
+          <div class="split-left">
+            <div class="card-top"><div class="icon"><svg viewBox="0 0 20 20" fill="none" stroke-width="1.8"><path d="m7 6-4 4 4 4M13 6l4 4-4 4"/></svg></div></div>
+            <h2 class="title">Your Design \u2192 Squarespace</h2>
+            <p class="desc">Already have a mockup, image, PDF or HTML? I rebuild it in Squarespace \u2014 matched pixel-for-pixel, then made fully editable so you can manage it yourself.</p>
+            <a href="#portfolio" class="action-link">See conversions {arw}</a>
+          </div>
+          <div class="split-right"><div class="feature-box">
+            <h3 class="inner-title">How it works</h3>
+            <div class="v2-flow">
+              <div class="v2-step"><span class="v2-k">&lt;/&gt;</span> Your design, mockup or HTML</div>
+              <div class="v2-arr">\u2193</div>
+              <div class="v2-step"><span class="v2-ck">{chk}</span> Rebuilt in Squarespace</div>
+              <div class="v2-arr">\u2193</div>
+              <div class="v2-step v2-done"><span class="v2-dot"></span> Live &amp; editable by you</div>
+            </div>
+          </div></div>
+        </div>
+      </section>
+
+    </div></div>
     <div class="svc-cta"><a class="cta" href="#portfolio">See all projects <span class="arr">\u2193</span></a></div>
   </div>
 </section>
@@ -565,8 +628,8 @@ def build_index():
 <section class="reviews" id="reviews">
   <div class="wrap rev-head">
     <span class="eyebrow">Client reviews</span>
-    <h2 class="display">Trusted by 230+ clients worldwide</h2>
-    <p>Real feedback from clients I\u2019ve designed and built Squarespace websites for.</p>
+    <h2 class="display">Rated 5.0 on Upwork across 117 reviews</h2>
+    <p>Real feedback from clients I\u2019ve designed and built Squarespace websites for \u2014 Top Rated with a 97% job success score.</p>
   </div>
   <div class="rev-marquee">
     <div class="rev-track rev-l">{row1}{row1}</div>
@@ -604,7 +667,6 @@ def build_index():
       <p>If you\u2019re hiring on Upwork, let\u2019s turn your job post into a fast, beautiful, conversion-ready Squarespace site. Send the brief and I\u2019ll reply with a clear plan, timeline and fixed price.</p>
       <div class="hire-cta">
         <a class="cta cta-lg" href="{UPWORK}" target="_blank" rel="noopener">Hire me on Upwork <span class="arr2">\u2197</span></a>
-        <a class="cta ghost cta-lg" href="#portfolio">Revisit the work</a>
       </div>
     </div>
   </div>

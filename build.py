@@ -13,12 +13,12 @@ PORTRAIT = "https://images.squarespace-cdn.com/content/v1/69cdfa4b7e96fb29aceec7
 UPWORK = "https://www.upwork.com/freelancers/kalanaheshan"
 
 TESTIMONIALS = [
-    ("Lucy Hargrave", "Kalana built a complete Squarespace website from our style guide and template. He completed the project quickly and implemented every change with ease. Would highly recommend."),
-    ("Ana Valdez Curiel", "Extremely attentive and helpful \u2014 he did the design exactly to my liking. I would work with him over and over again for his professionalism, quick responses and knowledge."),
-    ("Gordon Allott", "Super professional with a very fast turnaround. Kalana is a Squarespace guru \u2014 he pulled the whole website together in no time and filled in the grey areas brilliantly."),
-    ("Christopher Stear", "Very professional and easy to work with. Outstanding attention to detail, and he delivered every high-quality milestone ahead of schedule."),
-    ("Jennifer Kim", "From start to finish he showed exceptional skill in website design and communication. I\u2019m very pleased with how the whole project turned out."),
-    ("Sarah Talbo", "Kalana built my website from the ground up. He was patient, worked at my pace and really listened to my brand vision. Highly recommended!"),
+    ("Lucy Hargrave", "May 2026", "Kalana built a complete Squarespace website from our style guide and template. He completed the project quickly and implemented every change with ease. Would highly recommend."),
+    ("Ana Valdez Curiel", "Apr 2026", "Extremely attentive and helpful \u2014 he did the design exactly to my liking. I would work with him over and over again for his professionalism, quick responses and knowledge."),
+    ("Gordon Allott", "Mar 2026", "Super professional with a very fast turnaround. Kalana is a Squarespace guru \u2014 he pulled the whole website together in no time and filled in the grey areas brilliantly."),
+    ("Christopher Stear", "Feb 2026", "Very professional and easy to work with. Outstanding attention to detail, and he delivered every high-quality milestone ahead of schedule. A pleasure from start to finish."),
+    ("Jennifer Kim", "Jan 2026", "From start to finish he showed exceptional skill in website design and communication. I\u2019m very pleased with how the whole project turned out and will be back for the next one."),
+    ("Sarah Talbo", "Dec 2025", "Kalana built my website from the ground up. He was patient, worked at my pace and really listened to my brand vision. Highly recommended to anyone needing a Squarespace site!"),
 ]
 
 def img(path, fmt):
@@ -421,27 +421,31 @@ def build_index():
     cards = ""
     for i, p in enumerate(PROJECTS, 1):
         cats = "|".join(p["cat_slugs"])
-        tags = f'<span class="t">{E(p["industry"])}</span><span class="t">{E(p["duration"])}</span>'
         href = f'projects/{p["slug"]}.html'
         cards += f"""
     <a class="card" href="{href}" data-cats="{cats}">
       <div class="thumb">
-        <span class="num">{i:02d}</span>
         <img loading="lazy" src="{hero_url(p['hero'],'900w')}" alt="{E(p['client'])} \u2014 Squarespace project cover">
         <span class="open"><span>View case</span></span>
       </div>
       <div class="body">
         <div class="meta-top"><span class="client">{E(p['client'])}</span><span class="cat">{E(p['cat_label'])}</span></div>
         <h3>{E(p['title'])}</h3>
-        <div class="tags">{tags}</div>
       </div>
     </a>"""
 
     star = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26 6.88.6-5.2 4.54 1.56 6.74L12 17.1 5.86 20.7l1.56-6.74-5.2-4.54 6.88-.6z"/></svg>'
     stars = '<div class="stars">' + star * 5 + '</div>'
-    reviews = ""
-    for name, quote in TESTIMONIALS:
-        reviews += f"""<figure class="rev-card">{stars}<blockquote>{E(quote)}</blockquote><figcaption><span class="rev-name">{E(name)}</span><span class="rev-src">Verified client review</span></figcaption></figure>"""
+    def rev_card(name, date, quote):
+        n = len(quote)
+        size = "s" if n < 130 else ("m" if n < 175 else "l")
+        return (f'<figure class="rev-card rsz-{size}">{stars}'
+                f'<blockquote>{E(quote)}</blockquote>'
+                f'<figcaption><div class="rev-name">{E(name)}</div>'
+                f'<div class="rev-meta"><span class="rev-up">Upwork</span><span class="rev-dot">\u00b7</span><span>{E(date)}</span></div>'
+                f'</figcaption></figure>')
+    row1 = "".join(rev_card(*t) for t in TESTIMONIALS)
+    row2 = "".join(rev_card(*t) for t in reversed(TESTIMONIALS))
 
     html_doc = head(
         "Work Catalogue \u2014 Kalana Square \u2014 Squarespace Design & Development",
@@ -449,19 +453,30 @@ def build_index():
         "",
     )
     html_doc += topbar_index()
+    hv = lambda p: f'<div class="hv-card"><img loading="lazy" src="{hero_url(p["hero"],"640w")}" alt=""></div>'
+    colA = "".join(hv(p) for p in PROJECTS[0::2])
+    colB = "".join(hv(p) for p in PROJECTS[1::2])
     html_doc += f"""
 <section class="hero" id="work">
   <div class="glow"></div>
   <div class="grid-bg"></div>
   <div class="wrap">
-    <span class="eyebrow">Squarespace specialist \u00b7 Design &amp; development</span>
-    <h1 class="display">Squarespace websites that look sharp and <span class="u">actually perform.</span></h1>
-    <p class="lede">I design and build Squarespace websites from start to finish \u2014 whether you\u2019re starting fresh, refreshing a dated site, or rebuilding a design you already have. Everything below is real client work, made to look great, load fast, and stay easy for you to update yourself. Tap any project to see the full case and scroll through the live site.</p>
-    <div class="cta-row">
-      <a class="cta" href="#portfolio">Browse the work <span class="arr">\u2193</span></a>
-      <a class="cta ghost" href="#services">What I build</a>
+    <div class="hero-grid">
+      <div class="hero-text">
+        <span class="eyebrow">Squarespace specialist \u00b7 Design &amp; development</span>
+        <h1 class="display">Squarespace websites that look sharp and <span class="u">actually perform.</span></h1>
+        <p class="lede">I design and build Squarespace websites from start to finish \u2014 whether you\u2019re starting fresh, refreshing a dated site, or rebuilding a design you already have. Everything below is real client work, made to look great, load fast, and stay easy for you to update yourself.</p>
+        <div class="cta-row">
+          <a class="cta" href="#portfolio">Browse the work <span class="arr">\u2193</span></a>
+          <a class="cta ghost" href="#services">What I build</a>
+        </div>
+        <div class="builton"><span class="bo-label">Built exclusively on</span><img src="{SQSP_LOGO}?format=300w" alt="Squarespace" loading="lazy"></div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hv-col hv-up">{colA}{colA}</div>
+        <div class="hv-col hv-down">{colB}{colB}</div>
+      </div>
     </div>
-    <div class="builton"><span class="bo-label">Built exclusively on</span><img src="{SQSP_LOGO}?format=300w" alt="Squarespace" loading="lazy"></div>
     <div class="stats">
       <div class="stat"><div class="n">350+</div><div class="l">Sites built</div></div>
       <div class="stat"><div class="n">230+</div><div class="l">Clients worldwide</div></div>
@@ -475,27 +490,63 @@ def build_index():
   <div class="wrap">
     <div class="svc-head">
       <span class="eyebrow">What I can do for you</span>
-      <p>Whatever your website needs, I handle it end to end \u2014 building a brand-new site, improving or moving an existing one, and getting you found on Google. It\u2019s all built on Squarespace, so it\u2019s easy for you to update yourself afterwards.</p>
+      <p>Whatever your website needs, I handle it end to end \u2014 building a brand-new site, improving or moving an existing one, and getting you found on Google. It\u2019s all built on Squarespace, so it stays easy for you to update yourself.</p>
     </div>
 
-    <a class="svc-feature" href="#portfolio">
-      <div class="feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 4 8-8"/><path d="M16 8h5v5"/></svg></div>
-      <div class="feat-body">
-        <span class="feat-tag">Most requested</span>
-        <h3>Get found on Google \u2014 SEO that ranks</h3>
-        <p>Most clients come to me to get more traffic. Every site is built SEO-first \u2014 fast, clean and structured so Google can rank it. I also do full SEO audits and optimisation as a standalone service for sites that already exist.</p>
-        <div class="feat-chips"><span>Keyword &amp; competitor research</span><span>Speed &amp; technical SEO</span><span>Search Console + Analytics</span><span>Meta tags &amp; schema</span></div>
-      </div>
-      <span class="feat-arr">\u2192</span>
-    </a>
+    <div class="bento">
+      <a class="bx bx-design" href="#portfolio">
+        <div class="bx-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 9v12"/></svg></div>
+        <div class="bx-grow"></div>
+        <h3>Custom website design</h3>
+        <p>A premium, made-from-scratch Squarespace site built around your brand \u2014 fast, responsive and ready to turn visitors into customers. The flagship service most clients come for.</p>
+        <div class="bx-chips"><span>Squarespace 7.1</span><span>Mobile-perfect</span><span>Edit it yourself</span></div>
+        <span class="bx-arr">\u2192</span>
+      </a>
 
-    <div class="svc-grid">
-      <a class="svc" href="#portfolio"><div class="svc-top"><span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 9v12"/></svg></span><span class="svc-arr">\u2192</span></div><h3>Brand-new websites</h3><p>A custom site designed and built from scratch to fit your brand and goals.</p></a>
-      <a class="svc" href="#portfolio"><div class="svc-top"><span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v5h-5"/></svg></span><span class="svc-arr">\u2192</span></div><h3>Redesign my old site</h3><p>Turn a dated or messy website into something modern, clean and credible.</p></a>
-      <a class="svc" href="#portfolio"><div class="svc-top"><span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></svg></span><span class="svc-arr">\u2192</span></div><h3>Online stores</h3><p>Squarespace shops with products, checkout and digital downloads that sell.</p></a>
-      <a class="svc" href="#portfolio"><div class="svc-top"><span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13M14 5l3 3-3 3"/><path d="M20 16H7m3 3-3-3 3-3"/></svg></span><span class="svc-arr">\u2192</span></div><h3>Move me to Squarespace</h3><p>Switch from WordPress, Wix, GoDaddy or anywhere else \u2014 nothing lost.</p></a>
-      <a class="svc" href="#portfolio"><div class="svc-top"><span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m8 18-6-6 6-6m8 0 6 6-6 6"/></svg></span><span class="svc-arr">\u2192</span></div><h3>Build my design</h3><p>Already have a design or mockup? I rebuild it in Squarespace, matched exactly.</p></a>
-      <a class="svc" href="#portfolio"><div class="svc-top"><span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg></span><span class="svc-arr">\u2192</span></div><h3>Custom features</h3><p>Custom code for anything the standard platform can\u2019t do on its own.</p></a>
+      <a class="bx bx-seo" href="#portfolio">
+        <div class="bx-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 4 8-8"/><path d="M16 8h5v5"/></svg></div>
+        <span class="bx-tag">Most requested</span>
+        <h3>Get found on Google</h3>
+        <p>Built SEO-first so you rank \u2014 plus standalone audits &amp; optimisation for sites that already exist.</p>
+        <div class="bx-chips"><span>Keywords</span><span>Speed</span><span>Search Console</span><span>Schema</span></div>
+      </a>
+
+      <a class="bx bx-ecom" href="#portfolio">
+        <div class="bx-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></svg></div>
+        <h3>Online stores</h3>
+        <p>Products, checkout and digital downloads that actually sell.</p>
+      </a>
+
+      <a class="bx bx-migrate" href="#portfolio">
+        <div class="bx-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13M14 5l3 3-3 3"/><path d="M20 16H7m3 3-3-3 3-3"/></svg></div>
+        <h3>Move to Squarespace</h3>
+        <p>Switch from WordPress, Wix or GoDaddy \u2014 nothing lost.</p>
+      </a>
+
+      <a class="bx bx-html" href="#portfolio">
+        <div class="bx-html-text">
+          <div class="bx-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg></div>
+          <h3>Your design \u2192 Squarespace</h3>
+          <p>Have a mockup, image or HTML? I rebuild it in Squarespace, matched exactly \u2014 pixel for pixel.</p>
+        </div>
+        <div class="bx-slide" aria-hidden="true">
+          <div class="sl sl-a"><span class="sl-k">&lt;/&gt;</span> Your design</div>
+          <div class="sl-arrow">\u2192</div>
+          <div class="sl sl-b"><span class="sl-dot"></span> Live on Squarespace</div>
+        </div>
+      </a>
+
+      <a class="bx bx-redesign" href="#portfolio">
+        <div class="bx-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v5h-5"/></svg></div>
+        <h3>Redesign my old site</h3>
+        <p>Turn a dated, messy site into something modern and credible.</p>
+      </a>
+
+      <a class="bx bx-maintain" href="#portfolio">
+        <div class="bx-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Care &amp; support</h3>
+        <p>Ongoing edits, updates and monthly health checks.</p>
+      </a>
     </div>
     <div class="svc-cta"><a class="cta" href="#portfolio">See all projects <span class="arr">\u2193</span></a></div>
   </div>
@@ -515,10 +566,11 @@ def build_index():
   <div class="wrap rev-head">
     <span class="eyebrow">Client reviews</span>
     <h2 class="display">Trusted by 230+ clients worldwide</h2>
-    <p>A few words from people I\u2019ve built Squarespace websites for. Hover to pause and read.</p>
+    <p>Real feedback from clients I\u2019ve designed and built Squarespace websites for.</p>
   </div>
   <div class="rev-marquee">
-    <div class="rev-track">{reviews}{reviews}</div>
+    <div class="rev-track rev-l">{row1}{row1}</div>
+    <div class="rev-track rev-r">{row2}{row2}</div>
   </div>
 </section>
 
@@ -667,6 +719,20 @@ def build_project(idx, p):
   {solution_block(p)}
 </div></div></section>"""
         doc += preview_section(p)
+
+    if p.get("feedback"):
+        fb = p["feedback"]
+        star = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26 6.88.6-5.2 4.54 1.56 6.74L12 17.1 5.86 20.7l1.56-6.74-5.2-4.54 6.88-.6z"/></svg>'
+        meta = f'<span class="rev-up">Upwork</span>'
+        if fb.get("date"):
+            meta += f'<span class="rev-dot">\u00b7</span><span>{E(fb["date"])}</span>'
+        doc += f"""<section class="proj-fb"><div class="wrap">
+  <figure class="fb-card">
+    <div class="stars">{star*5}</div>
+    <blockquote>{E(fb['text'])}</blockquote>
+    <figcaption><div class="rev-name">{E(fb.get('name','Verified client'))}</div><div class="rev-meta">{meta}</div></figcaption>
+  </figure>
+</div></section>"""
 
     doc += pager(idx)
     doc += footer("../")

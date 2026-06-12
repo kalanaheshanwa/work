@@ -8,6 +8,10 @@ import os, html
 
 CDN = "https://images.squarespace-cdn.com/content"
 
+SQSP_LOGO = "https://images.squarespace-cdn.com/content/69cdfa4b7e96fb29aceec739/36d8bf55-de6a-475f-9d1e-229d8441190c/squarespace-logo-png-transparent.png"
+PORTRAIT = "https://images.squarespace-cdn.com/content/v1/69cdfa4b7e96fb29aceec739/6d195aac-e2b3-4a6f-b54e-0fbe33978339/portrait.png"
+UPWORK = "https://www.upwork.com/freelancers/kalanaheshan"
+
 def img(path, fmt):
     # path is the part after /content/ ; add format sizing, strip any junk
     base = path.split("?")[0]
@@ -358,15 +362,15 @@ E = html.escape
 
 # ---------------- shared chrome ----------------
 def topbar():
-    return """<header class="topbar"><div class="wrap">
+    return f"""<header class="topbar"><div class="wrap">
   <a class="brand" href="../index.html"><span class="mark"></span><b>Kalana&nbsp;Square</b><span>&nbsp;/ Work</span></a>
-  <nav><a href="../index.html">All work</a><span class="tag-pill">Squarespace Design &amp; Dev</span></nav>
+  <nav><a href="../index.html">All work</a><a class="nav-hire" href="{UPWORK}" target="_blank" rel="noopener">Hire on Upwork&nbsp;\u2197</a></nav>
 </div></header>"""
 
 def topbar_index():
-    return """<header class="topbar"><div class="wrap">
+    return f"""<header class="topbar"><div class="wrap">
   <a class="brand" href="index.html"><span class="mark"></span><b>Kalana&nbsp;Square</b><span>&nbsp;/ Work</span></a>
-  <nav><a href="#portfolio">Work</a><span class="tag-pill">Squarespace Design &amp; Dev</span></nav>
+  <nav><a href="#portfolio">Work</a><a href="#about">About</a><a class="nav-hire" href="{UPWORK}" target="_blank" rel="noopener">Hire on Upwork&nbsp;\u2197</a></nav>
 </div></header>"""
 
 def footer(rel=""):
@@ -388,10 +392,7 @@ def head(title, desc, css_rel):
 <title>{E(title)}</title>
 <meta name="description" content="{E(desc)}">
 <meta name="robots" content="noindex">
-<link rel="icon" href="{css_rel}favicon.svg" type="image/svg+xml">
-<link rel="icon" href="{css_rel}favicon-32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="{css_rel}favicon-16.png" sizes="16x16" type="image/png">
-<link rel="apple-touch-icon" href="{css_rel}apple-touch-icon.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='8'%20fill='%2315151a'/%3E%3Crect%20x='11'%20y='11'%20width='10'%20height='10'%20rx='2.5'%20fill='none'%20stroke='%230ea47e'%20stroke-width='2.6'/%3E%3C/svg%3E">
 <meta name="theme-color" content="#15151a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -446,11 +447,12 @@ def build_index():
       <a class="cta" href="#portfolio">Browse the work <span class="arr">\u2193</span></a>
       <a class="cta ghost" href="#services">What I build</a>
     </div>
+    <div class="builton"><span class="bo-label">Built exclusively on</span><img src="{SQSP_LOGO}?format=300w" alt="Squarespace" loading="lazy"></div>
     <div class="stats">
       <div class="stat"><div class="n">350+</div><div class="l">Sites built</div></div>
+      <div class="stat"><div class="n">230+</div><div class="l">Clients worldwide</div></div>
       <div class="stat"><div class="n">7+ yrs</div><div class="l">Squarespace focus</div></div>
       <div class="stat"><div class="n">Expert</div><div class="l">Marketplace + Circle</div></div>
-      <div class="stat"><div class="n">{len(PROJECTS):02d}</div><div class="l">Cases inside</div></div>
     </div>
   </div>
 </section>
@@ -462,12 +464,12 @@ def build_index():
       <p>Everything here is built on Squarespace \u2014 chosen so clients can update their own site without touching code, backed by custom development wherever the platform needs a push.</p>
     </div>
     <div class="svc-grid">
-      <a class="svc" href="#portfolio"><div class="svc-top"><span class="svc-n">01</span><span class="svc-arr">\u2192</span></div><h3>Custom builds</h3><p>Designed and built from scratch to fit your brand and goals.</p></a>
-      <a class="svc" href="#portfolio"><div class="svc-top"><span class="svc-n">02</span><span class="svc-arr">\u2192</span></div><h3>Redesigns &amp; refreshes</h3><p>Modernise an existing Squarespace site into something current and credible.</p></a>
-      <a class="svc" href="#portfolio"><div class="svc-top"><span class="svc-n">03</span><span class="svc-arr">\u2192</span></div><h3>Squarespace eCommerce</h3><p>Stores, product catalogues, checkout and digital products that sell.</p></a>
-      <a class="svc" href="#portfolio"><div class="svc-top"><span class="svc-n">04</span><span class="svc-arr">\u2192</span></div><h3>Migrations to Squarespace</h3><p>Move cleanly from WordPress, Wix, GoDaddy, HTML and more \u2014 content intact.</p></a>
-      <a class="svc" href="#portfolio"><div class="svc-top"><span class="svc-n">05</span><span class="svc-arr">\u2192</span></div><h3>HTML / Figma \u2192 Squarespace</h3><p>Pixel-accurate conversion of a developer\u2019s files or a designer\u2019s mockup.</p></a>
-      <a class="svc" href="#portfolio"><div class="svc-top"><span class="svc-n">06</span><span class="svc-arr">\u2192</span></div><h3>Custom code &amp; SEO</h3><p>CSS/JS where the platform stops, plus schema and on-page SEO to rank.</p></a>
+      <a class="svc" href="#portfolio"><div class="svc-top"><span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 9v12"/></svg></span><span class="svc-arr">\u2192</span></div><h3>Custom builds</h3><p>Designed and built from scratch to fit your brand and goals.</p></a>
+      <a class="svc" href="#portfolio"><div class="svc-top"><span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v5h-5"/></svg></span><span class="svc-arr">\u2192</span></div><h3>Redesigns &amp; refreshes</h3><p>Modernise an existing Squarespace site into something current and credible.</p></a>
+      <a class="svc" href="#portfolio"><div class="svc-top"><span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></svg></span><span class="svc-arr">\u2192</span></div><h3>Squarespace eCommerce</h3><p>Stores, product catalogues, checkout and digital products that sell.</p></a>
+      <a class="svc" href="#portfolio"><div class="svc-top"><span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13M14 5l3 3-3 3"/><path d="M20 16H7m3 3-3-3 3-3"/></svg></span><span class="svc-arr">\u2192</span></div><h3>Migrations to Squarespace</h3><p>Move cleanly from WordPress, Wix, GoDaddy, HTML and more \u2014 content intact.</p></a>
+      <a class="svc" href="#portfolio"><div class="svc-top"><span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m8 18-6-6 6-6m8 0 6 6-6 6"/></svg></span><span class="svc-arr">\u2192</span></div><h3>HTML / Figma \u2192 Squarespace</h3><p>Pixel-accurate conversion of a developer\u2019s files or a designer\u2019s mockup.</p></a>
+      <a class="svc" href="#portfolio"><div class="svc-top"><span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span><span class="svc-arr">\u2192</span></div><h3>Custom code &amp; SEO</h3><p>CSS/JS where the platform stops, plus schema and on-page SEO to rank.</p></a>
     </div>
     <div class="svc-cta"><a class="cta" href="#portfolio">See all {len(PROJECTS):02d} projects <span class="arr">\u2193</span></a></div>
   </div>
@@ -483,6 +485,42 @@ def build_index():
   </div>
   <div class="empty" id="empty">No projects in this category yet.</div>
 </div></main>
+
+<section class="about" id="about"><div class="wrap">
+  <div class="about-grid">
+    <div class="about-photo">
+      <img src="{PORTRAIT}?format=900w" alt="Kalana \u2014 Squarespace designer and developer" loading="lazy">
+    </div>
+    <div class="about-copy">
+      <span class="eyebrow">About</span>
+      <h2 class="display">Hello \u2014 I\u2019m Kalana, your Squarespace developer.</h2>
+      <p>I\u2019m a Squarespace specialist with 7+ years of experience and 350+ completed builds for clients worldwide. I design and develop high-performing, SEO-optimised sites end to end \u2014 custom builds, redesigns, eCommerce stores, platform migrations, and pixel-perfect Figma-to-Squarespace development, plus custom code when the platform needs to go further.</p>
+      <p>As an official Squarespace Circle member and Marketplace Expert, I deliver clean, fast, client-focused results \u2014 and every project ships with a walkthrough so you can manage your own site with confidence.</p>
+      <div class="creds">
+        <span class="cred">Top Rated on Upwork</span>
+        <span class="cred">Top Rated on Fiverr</span>
+        <span class="cred">Squarespace Marketplace Expert</span>
+        <span class="cred">Circle Platinum Member</span>
+        <span class="cred">7+ years \u00b7 350+ builds</span>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="hire" id="hire"><div class="wrap">
+  <div class="hire-card">
+    <div class="hire-glow"></div>
+    <div class="hire-inner">
+      <span class="hire-status"><span class="dot"></span>Available for work \u00b7 Top Rated on Upwork</span>
+      <h2 class="display">Have a Squarespace project in mind?</h2>
+      <p>If you\u2019re hiring on Upwork, let\u2019s turn your job post into a fast, beautiful, conversion-ready Squarespace site. Send the brief and I\u2019ll reply with a clear plan, timeline and fixed price.</p>
+      <div class="hire-cta">
+        <a class="cta cta-lg" href="{UPWORK}" target="_blank" rel="noopener">Hire me on Upwork <span class="arr2">\u2197</span></a>
+        <a class="cta ghost cta-lg" href="#portfolio">Revisit the work</a>
+      </div>
+    </div>
+  </div>
+</div></section>
 """
     html_doc += footer("")
     html_doc += '\n<button class="totop" id="totop" aria-label="Back to top"><span>\u2191</span></button>'

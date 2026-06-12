@@ -388,6 +388,11 @@ def head(title, desc, css_rel):
 <title>{E(title)}</title>
 <meta name="description" content="{E(desc)}">
 <meta name="robots" content="noindex">
+<link rel="icon" href="{css_rel}favicon.svg" type="image/svg+xml">
+<link rel="icon" href="{css_rel}favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="{css_rel}favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="{css_rel}apple-touch-icon.png">
+<meta name="theme-color" content="#15151a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -433,9 +438,9 @@ def build_index():
 <section class="hero" id="work">
   <div class="grid-bg"></div>
   <div class="wrap">
-    <span class="eyebrow">Selected work \u00b7 Squarespace</span>
-    <h1 class="display">Websites that look sharp and <span class="u">actually perform.</span></h1>
-    <p class="lede">A catalogue of real client builds \u2014 custom design, redesigns, eCommerce, migrations and code. Every site is hand-built to load fast and turn visitors into customers. Tap any project to open the full case and scroll the live screenshot.</p>
+    <span class="eyebrow">Squarespace specialist \u00b7 Design &amp; development</span>
+    <h1 class="display">Squarespace websites that look sharp and <span class="u">actually perform.</span></h1>
+    <p class="lede">I design and build on Squarespace, end to end \u2014 from a blank Figma file to a live, conversion-ready site, or a tired old site reborn. Every project below is a real client build: hand-crafted where it counts, fast to load, and easy for the owner to manage. Tap any project to open the full case and scroll the live screenshot.</p>
     <div class="stats">
       <div class="stat"><div class="n">350+</div><div class="l">Sites built</div></div>
       <div class="stat"><div class="n">7+ yrs</div><div class="l">Squarespace focus</div></div>
@@ -445,7 +450,22 @@ def build_index():
   </div>
 </section>
 
-<div class="toolbar"><div class="wrap">
+<section class="services">
+  <div class="wrap">
+    <div class="svc-head">
+      <span class="eyebrow">What I do on Squarespace</span>
+      <p>Everything here is built on Squarespace \u2014 chosen so clients can update their own site without touching code, backed by custom development wherever the platform needs a push.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc"><span class="svc-n">01</span><h3>Custom builds</h3><p>Designed and built from scratch to fit your brand and goals.</p></div>
+      <div class="svc"><span class="svc-n">02</span><h3>Redesigns &amp; refreshes</h3><p>Modernise an existing Squarespace site into something current and credible.</p></div>
+      <div class="svc"><span class="svc-n">03</span><h3>Squarespace eCommerce</h3><p>Stores, product catalogues, checkout and digital products that sell.</p></div>
+      <div class="svc"><span class="svc-n">04</span><h3>Migrations to Squarespace</h3><p>Move cleanly from WordPress, Wix, GoDaddy, HTML and more \u2014 content intact.</p></div>
+      <div class="svc"><span class="svc-n">05</span><h3>HTML / Figma \u2192 Squarespace</h3><p>Pixel-accurate conversion of a developer\u2019s files or a designer\u2019s mockup.</p></div>
+      <div class="svc"><span class="svc-n">06</span><h3>Custom code &amp; SEO</h3><p>CSS/JS where the platform stops, plus schema and on-page SEO to rank.</p></div>
+    </div>
+  </div>
+</section><div class="wrap">
   <div class="filters">{chips}</div>
   <span class="count" id="count">{len(PROJECTS):02d} / {len(PROJECTS):02d}</span>
 </div></div>

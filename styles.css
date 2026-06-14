@@ -340,11 +340,11 @@ img{display:block;max-width:100%}
 .rev-head p{color:var(--ink-soft);font-size:16.5px;margin:0}
 
 .rev-marquee{
-  margin-top:34px;display:flex;flex-direction:column;gap:1px;overflow:hidden;
+  margin-top:34px;display:flex;flex-direction:column;gap:14px;overflow:hidden;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);
 }
-.rev-track{display:flex;gap:1px;width:max-content;align-items:flex-start}
+.rev-track{display:flex;gap:14px;width:max-content;align-items:flex-start}
 .rev-l{animation:revleft 260s linear infinite}
 .rev-r{animation:revright 300s linear infinite}
 @keyframes revleft{from{transform:translateX(0)}to{transform:translateX(-50%)}}

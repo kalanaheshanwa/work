@@ -333,27 +333,37 @@ img{display:block;max-width:100%}
 .svc-feature:hover .feat-arr{transform:translateX(5px)}
 @media(max-width:720px){.svc-feature{flex-direction:column;align-items:flex-start;gap:18px}.feat-arr{display:none}}
 
-/* ---------- reviews wall (masonry columns) ---------- */
-.reviews{padding:74px 0 20px;scroll-margin-top:80px}
+/* ---------- reviews marquee (two scrolling rows) ---------- */
+.reviews{padding:74px 0 20px;overflow:hidden;scroll-margin-top:80px}
 .rev-head{max-width:60ch}
 .rev-head h2{font-size:clamp(26px,3.6vw,40px);margin:14px 0 12px}
 .rev-head p{color:var(--ink-soft);font-size:16.5px;margin:0}
 
-.rev-wall{
-  margin-top:34px;
-  column-count:3;
-  column-gap:16px;
+.rev-marquee{
+  margin-top:34px;display:flex;flex-direction:column;gap:14px;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);
 }
-@media(max-width:1000px){.rev-wall{column-count:2}}
-@media(max-width:600px){.rev-wall{column-count:1}}
+.rev-track{display:flex;gap:14px;width:max-content;align-items:flex-start}
+.rev-l{animation:revleft 260s linear infinite}
+.rev-r{animation:revright 300s linear infinite}
+@keyframes revleft{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes revright{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 .rev-card{
-  break-inside:avoid;-webkit-column-break-inside:avoid;page-break-inside:avoid;
-  margin:0 0 16px;width:100%;
+  flex:0 0 auto;align-self:flex-start;
   background:var(--surface);border:1px solid var(--hairline);border-radius:16px;
   padding:22px 24px;display:flex;flex-direction:column;gap:11px;
   transition:border-color .3s,box-shadow .3s,transform .3s;
 }
 .rev-card:hover{border-color:var(--hairline-2);box-shadow:var(--shadow);transform:translateY(-3px)}
+.rw-a{width:300px}
+.rw-b{width:340px}
+.rw-c{width:380px}
+.rw-d{width:430px}
+.rw-e{width:480px}
+.rw-f{width:540px}
+.rw-g{width:600px}
+@media(max-width:560px){.rw-a,.rw-b,.rw-c,.rw-d,.rw-e,.rw-f,.rw-g{width:82vw;max-width:360px}}
 .stars{display:flex;gap:3px;color:#f6b73c}
 .stars svg{width:16px;height:16px}
 .rev-card blockquote{margin:0;font-size:14px;line-height:1.55;color:var(--ink-soft)}

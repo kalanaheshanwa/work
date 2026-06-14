@@ -495,7 +495,8 @@ def build_index():
                 f'<div class="rev-proj">{E(title)}</div>'
                 f'<div class="rev-meta"><span class="rev-up">Upwork</span><span class="rev-dot">\u00b7</span><span>{E(date)}</span></div>'
                 f'</figcaption></figure>')
-    reviews_html = "".join(rev_card(*t) for t in TESTIMONIALS)
+    row1 = "".join(rev_card(*t) for i, t in enumerate(TESTIMONIALS) if i % 2 == 0)
+    row2 = "".join(rev_card(*t) for i, t in enumerate(TESTIMONIALS) if i % 2 == 1)
 
     html_doc = head(
         "Work Catalogue \u2014 Kalana Square \u2014 Squarespace Design & Development",
@@ -681,7 +682,10 @@ def build_index():
     <h2 class="display">Loved by clients on Upwork</h2>
     <p>Real, unedited feedback from the people I\u2019ve designed and built Squarespace websites for.</p>
   </div>
-  <div class="wrap"><div class="rev-wall">{reviews_html}</div></div>
+  <div class="rev-marquee">
+    <div class="rev-track rev-l">{row1}{row1}</div>
+    <div class="rev-track rev-r">{row2}{row2}</div>
+  </div>
 </section>
 
 <section class="about" id="about"><div class="wrap">

@@ -15,7 +15,7 @@ UPWORK = "https://www.upwork.com/freelancers/kalanaheshan"
 TESTIMONIALS = [
     ("Ed Breed", "Jun 2026", "$700", "Squarespace Website for Brand Your Journey", "I needed someone with strong expertise in Squarespace to convert some illustrated concepts into a functional website. Kalana hit the mark. He had great solutions to the issues raised, provided regular updates, and gave me options throughout the build. When he needed me to evaluate the options, we jumped on a video call. Kalana was very detail-oriented and delivered every milestone on time. He is an excellent resource, and I highly recommend him."),
     ("Melissa Pinson", "Jun 2026", "$400", "Website redesign", "Fantastic to work with \u2014 very responsive, efficient, and highly receptive to feedback throughout the process. Collaboration was seamless, and he consistently delivered high-quality work in a timely manner. I will definitely be hiring him again for future projects."),
-    ("David Carlson", "Jun 2026", "$675", "Squarespace Website Designer for In-Home Medical Practice", "Kalana did an outstanding job building our InHomeMD.com website on the Squarespace platform. From start to finish, he was proactive, highly knowledgeable, responsive, and incredibly patient throughout the entire process. He consistently anticipated issues before they became problems, offered thoughtful recommendations, and demonstrated a deep understanding of both Squarespace and website design best practices. What impressed us most was his professionalism and commitment to getting every detail right. He took the time to understand our vision and delivered a website that exceeded our expectations. If you are looking for someone technically skilled, reliable, and genuinely invested in your project, I highly recommend Kalana."),
+    ("David Carlson", "Jun 2026", "$675", "Squarespace Website Designer for In-Home Medical Practice", "Kalana did an outstanding job building our InHomeMD.com website on Squarespace. From start to finish he was proactive, highly knowledgeable, responsive, and incredibly patient. He consistently anticipated issues before they became problems and showed a deep understanding of Squarespace and design best practices. What impressed us most was his professionalism and commitment to getting every detail right. He delivered a website that exceeded our expectations. If you want someone technically skilled, reliable, and genuinely invested in your project, I highly recommend Kalana."),
     ("Oluwaseyi Ayodeji", "May 2026", "$760", "SquareSpace Personal Website Development", "I had the best experience using Kalana for my website. He was immensely patient and knowledgeable. I always had a 1001 questions and he met me with 1002 answers for each of my questions. I unequivocally recommend him if you need someone to be patient through ideation while also delivering top notch work. Thank you Kalana."),
     ("Justin Traucht", "May 2026", "$840", "Website Development Using Squarespace (HTML Mockup)", "Kalana was excellent to work with. He completed every task to perfection. He was able to bring the vision of a perfect website on desktop and mobile together on Squarespace. There were lots of things that were asked of him and he was able to complete them all right away. I will definitely be using him and recommending him for future projects."),
     ("Tom Serby", "May 2026", "$150", "Squarespace Layout Implementation for Business", "Great experience with Kalana, was able to replicate my ideas into reality and happy with the work he produced, will be using again for sure."),
@@ -481,9 +481,15 @@ def build_index():
     fivestars = star * 5
     def rev_card(name, date, price, title, quote):
         n = len(quote)
-        size = "s" if n < 120 else ("m" if n < 210 else ("l" if n < 340 else "xl"))
-        return (f'<figure class="rev-card rsz-{size}">'
-                f'<div class="rev-top"><div class="stars">{fivestars}</div><span class="rev-price">{E(price)}</span></div>'
+        if n < 90: size = "a"
+        elif n < 170: size = "b"
+        elif n < 250: size = "c"
+        elif n < 340: size = "d"
+        elif n < 430: size = "e"
+        elif n < 520: size = "f"
+        else: size = "g"
+        return (f'<figure class="rev-card rw-{size}">'
+                f'<div class="stars">{fivestars}</div>'
                 f'<blockquote>{E(quote)}</blockquote>'
                 f'<figcaption><div class="rev-name">{E(name)}</div>'
                 f'<div class="rev-proj">{E(title)}</div>'
@@ -673,8 +679,8 @@ def build_index():
 <section class="reviews" id="reviews">
   <div class="wrap rev-head">
     <span class="eyebrow">Client reviews</span>
-    <h2 class="display">Rated 5.0 on Upwork across 117 reviews</h2>
-    <p>Real feedback from clients I\u2019ve designed and built Squarespace websites for \u2014 Top Rated with a 97% job success score.</p>
+    <h2 class="display">Loved by clients on Upwork</h2>
+    <p>Real, unedited feedback from the people I\u2019ve designed and built Squarespace websites for.</p>
   </div>
   <div class="rev-marquee">
     <div class="rev-track rev-l">{row1}{row1}</div>

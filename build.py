@@ -12,6 +12,10 @@ SQSP_LOGO = "https://images.squarespace-cdn.com/content/69cdfa4b7e96fb29aceec739
 PORTRAIT = "https://images.squarespace-cdn.com/content/v1/69cdfa4b7e96fb29aceec739/6d195aac-e2b3-4a6f-b54e-0fbe33978339/portrait.png"
 UPWORK = "https://www.upwork.com/freelancers/kalanaheshan"
 
+BRANDS = ["Fletcher Films", "Coastline Therapy", "Pink Steak", "Psych Science Hub",
+          "Matter & Co.", "Gorgeous Gorgona", "The Curly Pineapples", "Abstract Insurance",
+          "In-Home MD", "By Lena", "Aurora", "Direct 300K Summit", "Vaughn Gray", "ExecFuel"]
+
 TESTIMONIALS = [
     ("Ed Breed", "Jun 2026", "$700", "Squarespace Website for Brand Your Journey", "I needed someone with strong expertise in Squarespace to convert some illustrated concepts into a functional website. Kalana hit the mark. He had great solutions to the issues raised, provided regular updates, and gave me options throughout the build. When he needed me to evaluate the options, we jumped on a video call. Kalana was very detail-oriented and delivered every milestone on time. He is an excellent resource, and I highly recommend him."),
     ("Melissa Pinson", "Jun 2026", "$400", "Website redesign", "Fantastic to work with \u2014 very responsive, efficient, and highly receptive to feedback throughout the process. Collaboration was seamless, and he consistently delivered high-quality work in a timely manner. I will definitely be hiring him again for future projects."),
@@ -509,6 +513,7 @@ def build_index():
     colB = "".join(hv(p) for p in PROJECTS[1::2])
     chk = '<svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'
     arw = '<svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>'
+    brand_items = "".join(f'<span class="brand">{E(n)}</span>' for n in BRANDS)
     html_doc += f"""
 <section class="hero" id="work">
   <div class="glow"></div>
@@ -536,6 +541,46 @@ def build_index():
       <div class="stat"><div class="n">7+ yrs</div><div class="l">Squarespace focus</div></div>
       <div class="stat"><div class="n">Expert</div><div class="l">Marketplace + Circle</div></div>
     </div>
+  </div>
+</section>
+
+<section class="badges"><div class="wrap">
+  <div class="badge-row">
+    <div class="badge badge-up"><span class="badge-ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26 6.88.6-5.2 4.54 1.56 6.74L12 17.1 5.86 20.7l1.56-6.74-5.2-4.54 6.88-.6z"/></svg></span><div class="badge-tx"><div class="badge-plat">Upwork</div><div class="badge-lab">Top Rated</div></div></div>
+    <div class="badge badge-fv"><span class="badge-ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26 6.88.6-5.2 4.54 1.56 6.74L12 17.1 5.86 20.7l1.56-6.74-5.2-4.54 6.88-.6z"/></svg></span><div class="badge-tx"><div class="badge-plat">Fiverr</div><div class="badge-lab">Top Rated</div></div></div>
+    <div class="badge badge-sq"><span class="badge-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><div class="badge-tx"><div class="badge-plat">Squarespace</div><div class="badge-lab">Marketplace Expert 2025</div></div></div>
+    <div class="badge badge-ci"><span class="badge-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><div class="badge-tx"><div class="badge-plat">Squarespace Circle</div><div class="badge-lab">Platinum Partner</div></div></div>
+  </div>
+</div></section>
+
+<div class="toolbar" id="portfolio"><div class="wrap">
+  <div class="filters">{chips}</div>
+</div></div>
+
+<main class="gallery"><div class="wrap">
+  <div class="grid" id="grid">{cards}
+  </div>
+  <div class="empty" id="empty">No projects in this category yet.</div>
+</div></main>
+
+<section class="brands">
+  <div class="wrap brands-head">
+    <span class="eyebrow">Partners</span>
+    <h2 class="display">Some of the brands that trusted me</h2>
+    <p>A few of the businesses and personal brands I\u2019ve built Squarespace websites for.</p>
+  </div>
+  <div class="brands-marquee"><div class="brands-track">{brand_items}{brand_items}</div></div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap rev-head">
+    <span class="eyebrow">Client reviews</span>
+    <h2 class="display">Loved by clients on Upwork</h2>
+    <p>Real, unedited feedback from the people I\u2019ve designed and built Squarespace websites for.</p>
+  </div>
+  <div class="rev-marquee">
+    <div class="rev-track rev-l">{row1}{row1}</div>
+    <div class="rev-track rev-r">{row2}{row2}</div>
   </div>
 </section>
 
@@ -663,28 +708,6 @@ def build_index():
 
     </div></div>
     <div class="svc-cta"><a class="cta" href="#portfolio">See all projects <span class="arr">\u2193</span></a></div>
-  </div>
-</section>
-
-<div class="toolbar" id="portfolio"><div class="wrap">
-  <div class="filters">{chips}</div>
-</div></div>
-
-<main class="gallery"><div class="wrap">
-  <div class="grid" id="grid">{cards}
-  </div>
-  <div class="empty" id="empty">No projects in this category yet.</div>
-</div></main>
-
-<section class="reviews" id="reviews">
-  <div class="wrap rev-head">
-    <span class="eyebrow">Client reviews</span>
-    <h2 class="display">Loved by clients on Upwork</h2>
-    <p>Real, unedited feedback from the people I\u2019ve designed and built Squarespace websites for.</p>
-  </div>
-  <div class="rev-marquee">
-    <div class="rev-track rev-l">{row1}{row1}</div>
-    <div class="rev-track rev-r">{row2}{row2}</div>
   </div>
 </section>
 

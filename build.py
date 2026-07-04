@@ -12,9 +12,26 @@ SQSP_LOGO = "https://images.squarespace-cdn.com/content/69cdfa4b7e96fb29aceec739
 PORTRAIT = "https://images.squarespace-cdn.com/content/v1/69cdfa4b7e96fb29aceec739/6d195aac-e2b3-4a6f-b54e-0fbe33978339/portrait.png"
 UPWORK = "https://www.upwork.com/freelancers/kalanaheshan"
 
-BRANDS = ["Fletcher Films", "Coastline Therapy", "Pink Steak", "Psych Science Hub",
-          "Matter & Co.", "Gorgeous Gorgona", "The Curly Pineapples", "Abstract Insurance",
-          "In-Home MD", "By Lena", "Aurora", "Direct 300K Summit", "Vaughn Gray", "ExecFuel"]
+LOGOS = [
+    ("Psych Science Hub", "https://images.squarespace-cdn.com/content/69cdfa4b7e96fb29aceec739/91415749-5043-4a6f-875f-fd3900e2e1a7/Psych+Science+Hub+.png?format=400w"),
+    ("Wellnergy", "https://images.squarespace-cdn.com/content/69cdfa4b7e96fb29aceec739/c1e18a15-41de-4431-ad96-9bc101cdbacb/wellnergy-logo-brandmark-rgb-yellow.png?format=400w"),
+    ("The Curly Pineapples", "https://images.squarespace-cdn.com/content/69cdfa4b7e96fb29aceec739/b6b7f76d-410e-4fc6-98cf-c927a0b512a8/The+Curly+Pineapples_.png?format=400w"),
+    ("NanoPing", "https://images.squarespace-cdn.com/content/69cdfa4b7e96fb29aceec739/0f3b3c73-5452-4927-82b8-686abd497688/Steinwurf+is+Evolving+into+_NanoPing.png?format=400w"),
+    ("Snap & Boom", "https://images.squarespace-cdn.com/content/69cdfa4b7e96fb29aceec739/3264c34f-51dc-45ba-8366-935c4260937d/Snap+%26+Boom__.png?format=400w"),
+    ("Pink Steak", "https://images.squarespace-cdn.com/content/69cdfa4b7e96fb29aceec739/412e2021-5a95-4473-b14a-23e161da7673/Pink+Steak.png?format=400w"),
+    ("Fletcher Films", "https://images.squarespace-cdn.com/content/69cdfa4b7e96fb29aceec739/209b5ce9-d551-48fc-9508-677c76379e51/Fletcher+Filmsnation+Wedding+Videographer.png?format=400w"),
+    ("Direct Booking Summit", "https://images.squarespace-cdn.com/content/69cdfa4b7e96fb29aceec739/9ace5322-f841-492d-bd32-e7da04aafc54/Direct+Booking+Summit.png?format=400w"),
+    ("Coastline Therapy Group", "https://images.squarespace-cdn.com/content/69cdfa4b7e96fb29aceec739/b16d4bb7-e3ed-4b0a-8fa8-80879afbb085/Coastline+Therapy+Group_.png?format=400w"),
+    ("Author Magazine", "https://images.squarespace-cdn.com/content/69cdfa4b7e96fb29aceec739/14b3dddf-a705-4c2a-908a-1645a8af7618/AUTHOR+MAGAZINE.png?format=400w"),
+    ("Ambiance Atlanta", "https://images.squarespace-cdn.com/content/69cdfa4b7e96fb29aceec739/8405f770-a57c-499f-b9d0-ecef03895fb8/Ambiance+Atlanta.png?format=400w"),
+]
+
+BADGES = [
+    ("Upwork Top Rated", "https://images.squarespace-cdn.com/content/69cdfa4b7e96fb29aceec739/54b79e05-27ba-4816-a16d-d31c0102f694/upwork-top-rated-dark.png?format=300w"),
+    ("Fiverr Top Rated", "https://images.squarespace-cdn.com/content/69cdfa4b7e96fb29aceec739/5eb2f7a6-69fa-440e-b9a1-c13fb12a9cc7/fiver-top-rated-dark.png?format=300w"),
+    ("Squarespace Marketplace Expert", "https://images.squarespace-cdn.com/content/69cdfa4b7e96fb29aceec739/2ec0a90b-a285-4a58-a719-26c51ffcfbed/squarespace-expert+%281%29.png?format=300w"),
+    ("Squarespace Circle Partner", "https://images.squarespace-cdn.com/content/69cdfa4b7e96fb29aceec739/6b46491c-b4bd-4980-9271-8291aabc0ca5/squarespace-circle-partner.png?format=300w"),
+]
 
 TESTIMONIALS = [
     ("Ed Breed", "Jun 2026", "$700", "Squarespace Website for Brand Your Journey", "I needed someone with strong expertise in Squarespace to convert some illustrated concepts into a functional website. Kalana hit the mark. He had great solutions to the issues raised, provided regular updates, and gave me options throughout the build. When he needed me to evaluate the options, we jumped on a video call. Kalana was very detail-oriented and delivered every milestone on time. He is an excellent resource, and I highly recommend him."),
@@ -513,7 +530,8 @@ def build_index():
     colB = "".join(hv(p) for p in PROJECTS[1::2])
     chk = '<svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'
     arw = '<svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>'
-    brand_items = "".join(f'<span class="brand">{E(n)}</span>' for n in BRANDS)
+    brand_items = "".join(f'<span class="blogo"><img src="{u}" alt="{E(n)}" loading="lazy"></span>' for n, u in LOGOS)
+    badge_items = "".join(f'<img class="badge-img" src="{u}" alt="{E(n)}" loading="lazy">' for n, u in BADGES)
     html_doc += f"""
 <section class="hero" id="work">
   <div class="glow"></div>
@@ -545,13 +563,17 @@ def build_index():
 </section>
 
 <section class="badges"><div class="wrap">
-  <div class="badge-row">
-    <div class="badge badge-up"><span class="badge-ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26 6.88.6-5.2 4.54 1.56 6.74L12 17.1 5.86 20.7l1.56-6.74-5.2-4.54 6.88-.6z"/></svg></span><div class="badge-tx"><div class="badge-plat">Upwork</div><div class="badge-lab">Top Rated</div></div></div>
-    <div class="badge badge-fv"><span class="badge-ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26 6.88.6-5.2 4.54 1.56 6.74L12 17.1 5.86 20.7l1.56-6.74-5.2-4.54 6.88-.6z"/></svg></span><div class="badge-tx"><div class="badge-plat">Fiverr</div><div class="badge-lab">Top Rated</div></div></div>
-    <div class="badge badge-sq"><span class="badge-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><div class="badge-tx"><div class="badge-plat">Squarespace</div><div class="badge-lab">Marketplace Expert 2025</div></div></div>
-    <div class="badge badge-ci"><span class="badge-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><div class="badge-tx"><div class="badge-plat">Squarespace Circle</div><div class="badge-lab">Platinum Partner</div></div></div>
-  </div>
+  <div class="badge-row">{badge_items}</div>
 </div></section>
+
+<section class="brands">
+  <div class="wrap brands-head">
+    <span class="eyebrow">Partners</span>
+    <h2 class="display">Some of the brands that trusted me</h2>
+    <p>A few of the businesses and personal brands I\u2019ve built Squarespace websites for.</p>
+  </div>
+  <div class="brands-marquee"><div class="brands-track">{brand_items}{brand_items}</div></div>
+</section>
 
 <div class="toolbar" id="portfolio"><div class="wrap">
   <div class="filters">{chips}</div>
@@ -562,15 +584,6 @@ def build_index():
   </div>
   <div class="empty" id="empty">No projects in this category yet.</div>
 </div></main>
-
-<section class="brands">
-  <div class="wrap brands-head">
-    <span class="eyebrow">Partners</span>
-    <h2 class="display">Some of the brands that trusted me</h2>
-    <p>A few of the businesses and personal brands I\u2019ve built Squarespace websites for.</p>
-  </div>
-  <div class="brands-marquee"><div class="brands-track">{brand_items}{brand_items}</div></div>
-</section>
 
 <section class="reviews" id="reviews">
   <div class="wrap rev-head">

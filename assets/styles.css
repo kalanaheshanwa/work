@@ -401,21 +401,14 @@ img{display:block;max-width:100%}
 .rev-up{color:#14a800;font-weight:700}
 .rev-dot{opacity:.5}
 
-/* ---------- trust badges ---------- */
-.badges{padding:30px 0 6px}
-.badge-row{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
-.badge{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--hairline);border-radius:13px;padding:12px 18px;box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s,border-color .3s}
-.badge:hover{transform:translateY(-3px);border-color:var(--hairline-2)}
-.badge-ic{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;color:#fff;flex:none}
-.badge-ic svg{width:19px;height:19px}
-.badge-up .badge-ic{background:#14a800}
-.badge-fv .badge-ic{background:#1dbf73}
-.badge-sq .badge-ic{background:#111}
-.badge-ci .badge-ic{background:var(--accent)}
-.badge-plat{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:14px;color:var(--ink);line-height:1.15}
-.badge-lab{font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.02em;color:var(--muted);margin-top:3px}
+/* ---------- trust badges (images) ---------- */
+.badges{padding:30px 0 8px}
+.badge-row{display:flex;flex-wrap:wrap;gap:26px;justify-content:center;align-items:center}
+.badge-img{height:66px;width:auto;object-fit:contain;display:block;transition:transform .3s}
+.badge-img:hover{transform:translateY(-3px)}
+@media(max-width:560px){.badge-row{gap:18px}.badge-img{height:50px}}
 
-/* ---------- brands / trusted by ---------- */
+/* ---------- brands / trusted by (client logos) ---------- */
 .brands{padding:52px 0 40px;overflow:hidden}
 .brands-head{text-align:center;max-width:60ch;margin:0 auto}
 .brands-head h2{font-size:clamp(24px,3.2vw,36px);margin:12px 0 10px}
@@ -425,13 +418,14 @@ img{display:block;max-width:100%}
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
 }
-.brands-track{display:flex;gap:20px;width:max-content;animation:brandscroll 60s linear infinite}
+.brands-track{display:flex;gap:18px;width:max-content;animation:brandscroll 55s linear infinite}
 @keyframes brandscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.brand{
-  flex:none;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:17px;letter-spacing:-.01em;
-  color:var(--ink-soft);background:var(--surface);border:1px solid var(--hairline);
-  border-radius:12px;padding:14px 26px;white-space:nowrap;opacity:.9;
+.blogo{
+  flex:none;display:grid;place-items:center;
+  background:var(--surface);border:1px solid var(--hairline);border-radius:14px;
+  height:96px;width:190px;padding:20px 26px;
 }
+.blogo img{max-height:100%;max-width:100%;width:auto;object-fit:contain;display:block}
 
 /* project-page client feedback */
 .proj-fb{padding:6px 0 56px}

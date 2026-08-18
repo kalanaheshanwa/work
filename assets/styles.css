@@ -92,10 +92,14 @@ img{display:block;max-width:100%}
 .topbar nav{display:flex;gap:26px;align-items:center}
 .topbar nav a{font-size:13px;color:var(--ink-soft);transition:color .2s}
 .topbar nav a:hover{color:var(--accent)}
+.topbar nav .nav-linkedin{width:32px;height:32px;border:1px solid var(--hairline-2);border-radius:9px;display:grid;place-items:center;background:var(--surface);transition:color .2s,border-color .2s,transform .2s}
+.topbar nav .nav-linkedin svg{width:16px;height:16px;fill:currentColor}
+.topbar nav .nav-linkedin:hover{border-color:var(--accent);transform:translateY(-1px)}
 @media(max-width:680px){
-  .topbar nav a:not(.nav-hire){display:none}
+  .topbar nav a:not(.nav-hire):not(.nav-linkedin){display:none}
   .brand span{display:none}
   .topbar .wrap{padding:0 18px}
+  .topbar nav{gap:10px}
 }
 .tag-pill{
   font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.06em;
@@ -461,6 +465,11 @@ img{display:block;max-width:100%}
   font-family:"Space Mono",monospace;font-size:11.5px;letter-spacing:.02em;color:var(--ink-soft);
   border:1px solid var(--hairline-2);border-radius:999px;padding:7px 13px;background:var(--surface);
 }
+.about-linkedin{display:inline-flex;align-items:center;gap:10px;margin-top:20px;padding:10px 14px;border:1px solid var(--hairline-2);border-radius:10px;background:var(--surface);color:var(--ink-soft);font-size:13px;font-weight:600;transition:color .2s,border-color .2s,transform .2s}
+.about-linkedin svg{width:18px;height:18px;fill:currentColor;flex:none}
+.about-linkedin .linkedin-arrow{color:var(--muted);transition:transform .2s}
+.about-linkedin:hover{color:var(--accent-ink);border-color:var(--accent);transform:translateY(-1px)}
+.about-linkedin:hover .linkedin-arrow{transform:translate(2px,-2px)}
 
 /* ---------- hire CTA band ---------- */
 .hire{padding:64px 0 80px}

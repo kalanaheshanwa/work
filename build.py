@@ -536,7 +536,7 @@ def footer(rel=""):
     <span class="t">Custom builds</span><span class="t">Redesigns</span><span class="t">eCommerce</span>
     <span class="t">Migrations</span><span class="t">SEO</span><span class="t">Custom code</span><span class="t">HTML&nbsp;\u2192&nbsp;Squarespace</span>
   </div>
-  <div class="note">Squarespace Marketplace Expert &middot; Circle Member &middot; 350+ builds &middot; 7+ years</div>
+  <div class="note">Squarespace Marketplace Expert &middot; Circle Member &middot; 450+ builds &middot; 7+ years</div>
 </div></footer>"""
 
 def head(title, desc, css_rel):
@@ -604,7 +604,7 @@ def build_index():
 
     html_doc = head(
         "Work Catalogue \u2014 Kalana Square \u2014 Squarespace Design & Development",
-        "Selected Squarespace website design and development work across health, wellness, eCommerce, photography, hospitality and tech. 350+ builds over 7+ years.",
+        "Selected Squarespace website design and development work across health, wellness, eCommerce, photography, hospitality and tech. 450+ builds over 7+ years.",
         "",
     )
     html_doc += topbar_index()
@@ -637,7 +637,7 @@ def build_index():
       </div>
     </div>
     <div class="stats">
-      <div class="stat"><div class="n">350+</div><div class="l">Sites built</div></div>
+      <div class="stat"><div class="n">450+</div><div class="l">Sites built</div></div>
       <div class="stat"><div class="n">230+</div><div class="l">Clients worldwide</div></div>
       <div class="stat"><div class="n">7+ yrs</div><div class="l">Squarespace focus</div></div>
       <div class="stat"><div class="n">Expert</div><div class="l">Marketplace + Circle</div></div>
@@ -815,14 +815,14 @@ def build_index():
     <div class="about-copy">
       <span class="eyebrow">About</span>
       <h2 class="display">Hello \u2014 I\u2019m Kalana, your Squarespace developer.</h2>
-      <p>I\u2019m a Squarespace specialist with 7+ years of experience and 350+ completed builds for clients worldwide. I design and develop high-performing, SEO-optimised sites end to end \u2014 custom builds, redesigns, eCommerce stores, platform migrations, and pixel-perfect Figma-to-Squarespace development, plus custom code when the platform needs to go further.</p>
+      <p>I\u2019m a Squarespace specialist with 7+ years of experience and 450+ completed builds for clients worldwide. I design and develop high-performing, SEO-optimised sites end to end \u2014 custom builds, redesigns, eCommerce stores, platform migrations, and pixel-perfect Figma-to-Squarespace development, plus custom code when the platform needs to go further.</p>
       <p>As an official Squarespace Circle member and Marketplace Expert, I deliver clean, fast, client-focused results \u2014 and every project ships with a walkthrough so you can manage your own site with confidence.</p>
       <div class="creds">
         <span class="cred">Top Rated on Upwork</span>
         <span class="cred">Top Rated on Fiverr</span>
         <span class="cred">Squarespace Marketplace Expert</span>
         <span class="cred">Circle Platinum Member</span>
-        <span class="cred">7+ years \u00b7 350+ builds</span>
+        <span class="cred">7+ years \u00b7 450+ builds</span>
       </div>
       <a class="about-linkedin" href="{LINKEDIN}" target="_blank" rel="noopener" aria-label="Connect with Kalana Heshan on LinkedIn">{LINKEDIN_ICON}</a>
     </div>

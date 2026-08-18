@@ -623,8 +623,8 @@ def build_index():
     <div class="hero-grid">
       <div class="hero-text">
         <span class="eyebrow">Squarespace specialist \u00b7 Design &amp; development</span>
-        <h1 class="display">Squarespace websites that look sharp and <span class="u">actually perform.</span></h1>
-        <p class="lede">I design and build Squarespace websites from start to finish \u2014 whether you\u2019re starting fresh, refreshing a dated site, or rebuilding a design you already have. Everything below is real client work, made to look great, load fast, and stay easy for you to update yourself.</p>
+        <h1 class="display">Squarespace Projects I\u2019ve Built for Real Businesses</h1>
+        <p class="lede">Browse a selection of real Squarespace projects from hundreds of websites I\u2019ve designed and built for businesses across different industries, including redesigns, migrations, eCommerce, and custom development.</p>
         <div class="cta-row">
           <a class="cta" href="#portfolio">Browse the work <span class="arr">\u2193</span></a>
           <a class="cta ghost" href="#services">What I build</a>

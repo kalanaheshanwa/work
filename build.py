@@ -824,7 +824,7 @@ def build_index():
         <span class="cred">Circle Platinum Member</span>
         <span class="cred">7+ years \u00b7 350+ builds</span>
       </div>
-      <a class="about-linkedin" href="{LINKEDIN}" target="_blank" rel="noopener">{LINKEDIN_ICON}<span>Connect with me on LinkedIn</span><span class="linkedin-arrow">\u2197</span></a>
+      <a class="about-linkedin" href="{LINKEDIN}" target="_blank" rel="noopener" aria-label="Connect with Kalana Heshan on LinkedIn">{LINKEDIN_ICON}</a>
     </div>
   </div>
 </div></section>

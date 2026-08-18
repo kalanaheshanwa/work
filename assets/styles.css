@@ -465,11 +465,9 @@ img{display:block;max-width:100%}
   font-family:"Space Mono",monospace;font-size:11.5px;letter-spacing:.02em;color:var(--ink-soft);
   border:1px solid var(--hairline-2);border-radius:999px;padding:7px 13px;background:var(--surface);
 }
-.about-linkedin{display:inline-flex;align-items:center;gap:10px;margin-top:20px;padding:10px 14px;border:1px solid var(--hairline-2);border-radius:10px;background:var(--surface);color:var(--ink-soft);font-size:13px;font-weight:600;transition:color .2s,border-color .2s,transform .2s}
-.about-linkedin svg{width:18px;height:18px;fill:currentColor;flex:none}
-.about-linkedin .linkedin-arrow{color:var(--muted);transition:transform .2s}
+.about-linkedin{display:grid;place-items:center;width:40px;height:40px;margin-top:20px;border:1px solid var(--hairline-2);border-radius:10px;background:var(--surface);color:var(--ink-soft);transition:color .2s,border-color .2s,transform .2s}
+.about-linkedin svg{width:19px;height:19px;fill:currentColor}
 .about-linkedin:hover{color:var(--accent-ink);border-color:var(--accent);transform:translateY(-1px)}
-.about-linkedin:hover .linkedin-arrow{transform:translate(2px,-2px)}
 
 /* ---------- hire CTA band ---------- */
 .hire{padding:64px 0 80px}

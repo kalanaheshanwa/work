@@ -259,7 +259,7 @@ img{display:block;max-width:100%}
 .cta:hover .arr{transform:translateY(3px)}
 .cta.ghost{background:transparent;color:var(--ink);border-color:var(--hairline-2);box-shadow:none}
 .cta.ghost:hover{background:var(--surface);border-color:var(--ink);box-shadow:none}
-.svc-cta{margin-top:30px}
+.svc-cta{margin-top:34px}
 
 /* ---------- floating back-to-top ---------- */
 .totop{
@@ -280,9 +280,10 @@ img{display:block;max-width:100%}
 /* ---------- services band ---------- */
 #services{scroll-margin-top:84px}
 #portfolio{scroll-margin-top:64px}
-.services{padding:62px 0 6px}
-.svc-head{max-width:72ch}
-.svc-head p{font-size:18px;color:var(--ink-soft);margin:16px 0 0}
+.services{padding:72px 0 84px}
+.svc-head{max-width:76ch}
+.svc-head h2{font-size:clamp(34px,4.3vw,56px);margin:14px 0 0;max-width:17ch}
+.svc-head p{font-size:18px;color:var(--ink-soft);margin:20px 0 0;max-width:68ch}
 .svc-grid{
   display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
   background:var(--hairline);border:1px solid var(--hairline);border-radius:14px;
@@ -642,7 +643,7 @@ footer .skills .t{font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sa
 .process-panel[hidden]{display:none}
 .process-left,.process-right{position:relative;padding:42px 46px;min-width:0}
 .process-left{overflow:hidden}.process-right{background:#f7f8f5;border-left:1px solid var(--hairline)}
-.process-bg-num{position:absolute;right:-4px;bottom:-54px;font-size:190px;font-weight:600;line-height:1;color:#f3f4ef;letter-spacing:-.08em;pointer-events:none}
+.process-bg-num{position:absolute;right:18px;bottom:12px;font-size:148px;font-weight:600;line-height:1;color:#f3f4ef;letter-spacing:-.08em;pointer-events:none}
 .process-icon{position:relative;z-index:1;width:54px;height:54px;display:grid;place-items:center;border-radius:14px;background:color-mix(in srgb,var(--accent) 13%,#fff);color:var(--accent-ink);font-weight:600}
 .process-kicker{position:relative;z-index:1;display:block;margin:24px 0 8px;font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink)}
 .process-panel h3{position:relative;z-index:1;font-size:clamp(24px,2.4vw,34px);font-weight:600;letter-spacing:-.025em;line-height:1.18;margin:0 0 13px}
@@ -685,7 +686,7 @@ footer .skills .t{font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sa
   .process-panel{grid-template-columns:1fr}
   .process-left,.process-right{padding:30px 25px}
   .process-right{border-left:0;border-top:1px solid var(--hairline)}
-  .process-bg-num{font-size:140px}
+  .process-bg-num{right:12px;bottom:10px;font-size:104px}
   .process-top{justify-content:space-between}
   .faq-grid{grid-template-columns:1fr;gap:34px}
   .faq-head{position:static}

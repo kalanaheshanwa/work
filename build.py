@@ -799,6 +799,7 @@ def build_index():
   <div class="wrap">
     <div class="svc-head">
       <span class="eyebrow">What I can do for you</span>
+      <h2 class="display">Squarespace services for every stage of your website</h2>
       <p>Whatever your website needs, I handle it end to end \u2014 building a brand-new site, improving or moving an existing one, and getting you found on Google. It\u2019s all built on Squarespace, so it stays easy for you to update yourself.</p>
     </div>
 
@@ -918,7 +919,7 @@ def build_index():
       </section>
 
     </div></div>
-    <div class="svc-cta"><a class="cta" href="#portfolio">See all projects <span class="arr">\u2193</span></a></div>
+    <div class="svc-cta"><a class="cta" href="{UPWORK}" target="_blank" rel="noopener">Contact me on Upwork <span class="arr">\u2197</span></a></div>
   </div>
 </section>
 

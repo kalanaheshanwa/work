@@ -30,10 +30,10 @@ LOGOS = [
 ]
 
 BADGES = [
-    ("Upwork Top Rated", "https://images.squarespace-cdn.com/content/69cdfa4b7e96fb29aceec739/54b79e05-27ba-4816-a16d-d31c0102f694/upwork-top-rated-dark.png?format=300w"),
-    ("Fiverr Top Rated", "https://images.squarespace-cdn.com/content/69cdfa4b7e96fb29aceec739/5eb2f7a6-69fa-440e-b9a1-c13fb12a9cc7/fiver-top-rated-dark.png?format=300w"),
-    ("Squarespace Marketplace Expert", "https://images.squarespace-cdn.com/content/69cdfa4b7e96fb29aceec739/2ec0a90b-a285-4a58-a719-26c51ffcfbed/squarespace-expert+%281%29.png?format=300w"),
-    ("Squarespace Circle Partner", "https://images.squarespace-cdn.com/content/69cdfa4b7e96fb29aceec739/6b46491c-b4bd-4980-9271-8291aabc0ca5/squarespace-circle-partner.png?format=300w"),
+    ("Upwork Top Rated", "https://images.squarespace-cdn.com/content/69cdfa4b7e96fb29aceec739/54b79e05-27ba-4816-a16d-d31c0102f694/upwork-top-rated-dark.png?format=300w", ""),
+    ("Fiverr Top Rated", "https://images.squarespace-cdn.com/content/69cdfa4b7e96fb29aceec739/5eb2f7a6-69fa-440e-b9a1-c13fb12a9cc7/fiver-top-rated-dark.png?format=300w", ""),
+    ("Squarespace Marketplace Expert", "https://images.squarespace-cdn.com/content/69cdfa4b7e96fb29aceec739/2ec0a90b-a285-4a58-a719-26c51ffcfbed/squarespace-expert+%281%29.png?format=300w", "https://www.squarespace.com/designer/profile/4920324"),
+    ("Squarespace Circle Platinum Partner", "https://images.squarespace-cdn.com/content/69cdfa4b7e96fb29aceec739/6b46491c-b4bd-4980-9271-8291aabc0ca5/squarespace-circle-partner.png?format=300w", "https://forum.squarespace.com/profile/363220-heyshan/"),
 ]
 
 TESTIMONIALS = [
@@ -411,6 +411,7 @@ PROJECTS = [
                 "desc": "Starting from a single homepage image, I reconstructed the design language in Squarespace and extended it across the missing pages so the finished website felt intentionally designed as one system.",
                 "files": [],
                 "mock_img": "69cdfa4b7e96fb29aceec739/e06f30f3-fedc-451b-9bf3-d351a575e046/6A217C59-1281-4789-A815-4B62E12EE6F5.png",
+                "mock": "https://kalanaheshanwa.github.io/client-mockups-projects/resurface/resurface-viewer.html",
                 "live": "https://www.resurface.co/",
             },
             {
@@ -722,7 +723,12 @@ def build_index():
     chk = '<svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'
     arw = '<svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>'
     brand_items = "".join(f'<span class="blogo"><img src="{u}" alt="{E(n)}" loading="lazy"></span>' for n, u in LOGOS)
-    badge_items = "".join(f'<img class="badge-img" src="{u}" alt="{E(n)}" loading="lazy">' for n, u in BADGES)
+    badge_items = "".join(
+        f'<a class="badge-link" href="{link}" target="_blank" rel="noopener" aria-label="View {E(n)} profile"><img class="badge-img" src="{u}" alt="{E(n)}" loading="lazy"></a>'
+        if link else
+        f'<span class="badge-link"><img class="badge-img" src="{u}" alt="{E(n)}" loading="lazy"></span>'
+        for n, u, link in BADGES
+    )
     html_doc += f"""
 <section class="hero" id="work">
   <div class="glow"></div>
@@ -987,7 +993,10 @@ def convert_section(p):
             links += f'<a class="btn" href="{it["live"]}" target="_blank" rel="noopener">Live Squarespace site</a>'
         mock_img = ""
         if it.get("mock_img"):
-            mock_img = f'<div class="conv-mock"><img loading="lazy" src="{img(it["mock_img"],"1200w")}" alt="{E(it["name"])} client mockup"></div>'
+            mock_img = f'''<div class="conv-mock">
+  <div class="conv-mock-bar"><span class="conv-dots"><i></i><i></i><i></i></span><span>Client homepage mockup</span><span>Scroll to preview</span></div>
+  <div class="conv-mock-scroll"><img loading="lazy" src="{img(it["mock_img"],"1200w")}" alt="{E(it["name"])} client mockup"></div>
+</div>'''
         out += f"""<div class="conv-item">
   <div class="top"><div><div class="pj">{E(it['pj'])}</div><h3>{E(it['name'])}</h3></div></div>
   <p>{E(it['desc'])}</p>

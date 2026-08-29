@@ -406,11 +406,16 @@ img{display:block;max-width:100%}
 .rev-dot{opacity:.5}
 
 /* ---------- trust badges (images) ---------- */
-.badges{padding:30px 0 8px}
-.badge-row{display:flex;flex-wrap:wrap;gap:26px;justify-content:center;align-items:center}
+.badges{
+  padding:42px 0;background:#e4e9e1;
+  border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);
+}
+.badge-row{display:flex;flex-wrap:wrap;gap:42px 50px;justify-content:center;align-items:center}
+.badge-link{display:inline-flex;align-items:center;justify-content:center;border-radius:8px}
+a.badge-link:focus-visible{outline:2px solid var(--accent);outline-offset:7px}
 .badge-img{height:66px;width:auto;object-fit:contain;display:block;transition:transform .3s}
-.badge-img:hover{transform:translateY(-3px)}
-@media(max-width:560px){.badge-row{gap:18px}.badge-img{height:50px}}
+a.badge-link:hover .badge-img{transform:translateY(-3px)}
+@media(max-width:560px){.badges{padding:34px 0}.badge-row{gap:26px 30px}.badge-img{height:50px}}
 
 /* ---------- brands / trusted by (client logos) ---------- */
 .brands{padding:52px 0 40px;overflow:hidden}
@@ -508,8 +513,8 @@ img{display:block;max-width:100%}
   border-bottom:1px solid var(--hairline);
   margin-top:46px;
 }
-.toolbar .wrap{display:flex;align-items:center;gap:12px 14px;flex-wrap:wrap;padding:13px 28px}
-.filters{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.toolbar .wrap{display:flex;align-items:center;justify-content:center;gap:12px 14px;flex-wrap:wrap;padding:13px 28px}
+.filters{display:flex;width:100%;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap}
 .chip{
   font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-size:12px;letter-spacing:.02em;
   white-space:nowrap;
@@ -700,8 +705,18 @@ footer .skills .t{font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sa
 .btn.ghost{border-color:var(--hairline-2);color:var(--ink-soft)}
 .btn.ghost::after{content:"→"}
 .btn.ghost:hover{background:var(--paper);color:var(--ink);border-color:var(--ink)}
-.conv-mock{margin-top:20px;border:1px solid var(--hairline);border-radius:12px;overflow:hidden}
-.conv-mock img{width:100%;height:auto}
+.conv-mock{margin-top:20px;border:1px solid var(--hairline);border-radius:12px;overflow:hidden;background:#fff}
+.conv-mock-bar{
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;
+  min-height:38px;padding:0 14px;border-bottom:1px solid var(--hairline);background:#fafaf7;
+  font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-size:10.5px;color:var(--muted);
+}
+.conv-mock-bar>span:nth-child(2){text-align:center}
+.conv-dots{display:flex;gap:5px}
+.conv-dots i{display:block;width:8px;height:8px;border-radius:50%;background:var(--hairline-2)}
+.conv-mock-scroll{max-height:560px;overflow:auto;overscroll-behavior:contain}
+.conv-mock img{width:100%;height:auto;display:block}
+@media(max-width:560px){.conv-mock-scroll{max-height:420px}.conv-mock-bar>span:last-child{display:none}.conv-mock-bar{grid-template-columns:auto 1fr}}
 
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}

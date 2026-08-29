@@ -74,6 +74,38 @@
     }
   }
 
+  /* ---- interactive project process ---- */
+  var processTabs = [].slice.call(document.querySelectorAll(".process-tab"));
+  var processPanels = [].slice.call(document.querySelectorAll(".process-panel"));
+  function selectProcessTab(tab, moveFocus) {
+    var panelId = tab.getAttribute("aria-controls");
+    processTabs.forEach(function (item) {
+      var active = item === tab;
+      item.classList.toggle("is-active", active);
+      item.setAttribute("aria-selected", active ? "true" : "false");
+      item.setAttribute("tabindex", active ? "0" : "-1");
+    });
+    processPanels.forEach(function (panel) {
+      var active = panel.id === panelId;
+      panel.classList.toggle("is-active", active);
+      panel.hidden = !active;
+    });
+    if (moveFocus) tab.focus();
+  }
+  processTabs.forEach(function (tab, index) {
+    tab.addEventListener("click", function () { selectProcessTab(tab, false); });
+    tab.addEventListener("keydown", function (e) {
+      if (e.key !== "ArrowLeft" && e.key !== "ArrowRight" && e.key !== "Home" && e.key !== "End") return;
+      e.preventDefault();
+      var next = index;
+      if (e.key === "ArrowRight") next = (index + 1) % processTabs.length;
+      if (e.key === "ArrowLeft") next = (index - 1 + processTabs.length) % processTabs.length;
+      if (e.key === "Home") next = 0;
+      if (e.key === "End") next = processTabs.length - 1;
+      selectProcessTab(processTabs[next], true);
+    });
+  });
+
   /* ---- lightbox for full-site screenshots ---- */
   var lb = document.getElementById("lb");
   if (lb) {

@@ -605,6 +605,57 @@ footer .note{font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-se
 footer .skills{display:flex;flex-wrap:wrap;gap:7px}
 footer .skills .t{font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-size:10.5px;color:var(--ink-soft);border:1px solid var(--hairline);border-radius:5px;padding:3px 8px}
 
+/* ---------- interactive process ---------- */
+.process{padding:92px 0;background:var(--surface);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
+.process-head{max-width:720px;margin-bottom:34px}
+.process-head h2{font-size:clamp(34px,4.2vw,56px);margin:12px 0 14px}
+.process-head p,.faq-head p{color:var(--ink-soft);font-size:16.5px;max-width:62ch}
+.process-card{border:1px solid var(--hairline);border-radius:18px;overflow:hidden;background:var(--paper);box-shadow:var(--shadow)}
+.process-tabs{display:grid;grid-template-columns:repeat(5,1fr);background:var(--surface);border-bottom:1px solid var(--hairline);position:relative}
+.process-tabs::after{content:"";position:absolute;left:10%;right:10%;top:31px;height:1px;background:var(--hairline-2);z-index:0}
+.process-tab{position:relative;z-index:1;min-width:0;border:0;background:transparent;color:var(--muted);padding:18px 12px 20px;cursor:pointer;font:inherit;text-align:center}
+.process-tab span{display:flex;width:28px;height:28px;margin:0 auto 11px;align-items:center;justify-content:center;border-radius:50%;background:var(--paper);border:1px solid var(--hairline-2);font-size:10px;font-weight:600;transition:all .25s}
+.process-tab b{display:block;font-size:11.5px;line-height:1.35;font-weight:500}
+.process-tab:hover,.process-tab.is-active{color:var(--ink)}
+.process-tab.is-active span{background:var(--ink);border-color:var(--ink);color:#fff;box-shadow:0 0 0 5px var(--surface)}
+.process-tab:focus-visible{outline:2px solid var(--accent);outline-offset:-4px;border-radius:7px}
+.process-panels{padding:44px 48px 48px;min-height:250px}
+.process-panel{display:grid;grid-template-columns:150px 1fr;gap:34px;align-items:start;animation:process-in .35s var(--ease)}
+.process-panel[hidden]{display:none}
+.process-count{font-size:56px;font-weight:500;letter-spacing:-.05em;line-height:1;color:var(--accent)}
+.process-count span{font-size:13px;color:var(--muted);letter-spacing:0}
+.process-panel h3{font-size:clamp(25px,3vw,36px);font-weight:500;letter-spacing:-.025em;margin:0 0 13px}
+.process-panel p{color:var(--ink-soft);font-size:16.5px;max-width:68ch;margin:0}
+@keyframes process-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ---------- FAQs ---------- */
+.faq{padding:92px 0;background:var(--paper);border-top:1px solid var(--hairline)}
+.faq-grid{display:grid;grid-template-columns:minmax(250px,.7fr) minmax(0,1.3fr);gap:70px;align-items:start}
+.faq-head{position:sticky;top:98px}
+.faq-head h2{font-size:clamp(34px,4vw,52px);margin:12px 0 14px}
+.faq-list{border-top:1px solid var(--hairline-2)}
+.faq-list details{border-bottom:1px solid var(--hairline-2)}
+.faq-list summary{display:grid;grid-template-columns:1fr 24px;gap:18px;align-items:center;padding:22px 0;cursor:pointer;list-style:none;font-size:16px;font-weight:500;letter-spacing:-.01em}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary span{position:relative;width:20px;height:20px;border:1px solid var(--hairline-2);border-radius:50%}
+.faq-list summary span::before,.faq-list summary span::after{content:"";position:absolute;left:5px;right:5px;top:9px;height:1px;background:var(--ink);transition:transform .25s}
+.faq-list summary span::after{transform:rotate(90deg)}
+.faq-list details[open] summary span::after{transform:rotate(0)}
+.faq-list details p{color:var(--ink-soft);font-size:15.5px;max-width:70ch;margin:-6px 42px 22px 0}
+.faq-list summary:focus-visible{outline:2px solid var(--accent);outline-offset:6px;border-radius:3px}
+@media(max-width:760px){
+  .process,.faq{padding:68px 0}
+  .process-tabs{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .process-tabs::-webkit-scrollbar{display:none}
+  .process-tabs::after{display:none}
+  .process-tab{min-width:150px;scroll-snap-align:start;border-right:1px solid var(--hairline)}
+  .process-panels{padding:30px 24px 34px;min-height:330px}
+  .process-panel{grid-template-columns:1fr;gap:22px}
+  .process-count{font-size:45px}
+  .faq-grid{grid-template-columns:1fr;gap:34px}
+  .faq-head{position:static}
+}
+
 /* ============================================================
    PROJECT PAGE
    ============================================================ */

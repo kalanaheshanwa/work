@@ -921,6 +921,40 @@ def build_index():
   </div>
 </section>
 
+<section class="process" id="process"><div class="wrap">
+  <div class="process-head">
+    <span class="eyebrow">My process</span>
+    <h2 class="display">A clear process from brief to launch</h2>
+    <p>I use a clear, collaborative workflow that keeps your Squarespace project organised from our first conversation through launch and post-project support.</p>
+  </div>
+  <div class="process-card">
+    <div class="process-tabs" role="tablist" aria-label="Website project process">
+      <button class="process-tab is-active" id="process-tab-1" role="tab" aria-selected="true" aria-controls="process-panel-1" tabindex="0" data-step="1"><span>01</span><b>Discovery &amp; Planning</b></button>
+      <button class="process-tab" id="process-tab-2" role="tab" aria-selected="false" aria-controls="process-panel-2" tabindex="-1" data-step="2"><span>02</span><b>Content Preparation</b></button>
+      <button class="process-tab" id="process-tab-3" role="tab" aria-selected="false" aria-controls="process-panel-3" tabindex="-1" data-step="3"><span>03</span><b>Design &amp; Development</b></button>
+      <button class="process-tab" id="process-tab-4" role="tab" aria-selected="false" aria-controls="process-panel-4" tabindex="-1" data-step="4"><span>04</span><b>Feedback &amp; Revisions</b></button>
+      <button class="process-tab" id="process-tab-5" role="tab" aria-selected="false" aria-controls="process-panel-5" tabindex="-1" data-step="5"><span>05</span><b>Launch &amp; Support</b></button>
+    </div>
+    <div class="process-panels">
+      <div class="process-panel is-active" id="process-panel-1" role="tabpanel" aria-labelledby="process-tab-1">
+        <div class="process-count">01 <span>/ 05</span></div><div><h3>Discovery &amp; Planning</h3><p>I begin with a discovery call to understand your business, goals, target audience, required pages, preferred style and functionality. After the call, I provide a clear proposal, project scope, timeline and fixed price where appropriate.</p></div>
+      </div>
+      <div class="process-panel" id="process-panel-2" role="tabpanel" aria-labelledby="process-tab-2" hidden>
+        <div class="process-count">02 <span>/ 05</span></div><div><h3>Content &amp; Design Preparation</h3><p>I collect your logo, brand colours, written content, images, inspiration and technical requirements. When needed, I can also help organise your content, recommend imagery and establish a visual direction.</p></div>
+      </div>
+      <div class="process-panel" id="process-panel-3" role="tabpanel" aria-labelledby="process-tab-3" hidden>
+        <div class="process-count">03 <span>/ 05</span></div><div><h3>Design &amp; Development</h3><p>I design and build your website in Squarespace, creating responsive layouts that reflect your brand and work across desktop, tablet and mobile devices. You receive access to a live version during development.</p></div>
+      </div>
+      <div class="process-panel" id="process-panel-4" role="tabpanel" aria-labelledby="process-tab-4" hidden>
+        <div class="process-count">04 <span>/ 05</span></div><div><h3>Feedback &amp; Revisions</h3><p>You review the website and share feedback through a simple commenting process. I implement the agreed revisions and refine the website until the key details are ready for launch.</p></div>
+      </div>
+      <div class="process-panel" id="process-panel-5" role="tabpanel" aria-labelledby="process-tab-5" hidden>
+        <div class="process-count">05 <span>/ 05</span></div><div><h3>Launch &amp; Support</h3><p>I connect the domain, check forms and links, configure basic SEO, connect Google Search Console and Analytics where required, submit the sitemap and prepare the website for launch. You also receive a training video and six months of post-launch support for minor issues.</p></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
 <section class="about" id="about"><div class="wrap">
   <div class="about-grid">
     <div class="about-photo">
@@ -939,6 +973,27 @@ def build_index():
         <span class="cred">7+ years \u00b7 450+ builds</span>
       </div>
       <a class="about-linkedin" href="{LINKEDIN}" target="_blank" rel="noopener" aria-label="Connect with Kalana Heshan on LinkedIn">{LINKEDIN_ICON}</a>
+    </div>
+  </div>
+</div></section>
+
+<section class="faq" id="faq"><div class="wrap">
+  <div class="faq-grid">
+    <div class="faq-head">
+      <span class="eyebrow">Frequently asked questions</span>
+      <h2 class="display">Questions before we start</h2>
+      <p>Quick answers about working with me on your Squarespace project.</p>
+    </div>
+    <div class="faq-list">
+      <details open><summary>What types of Squarespace projects do you handle?<span aria-hidden="true"></span></summary><p>I design new Squarespace websites, redesign existing sites, migrate websites from other platforms, build eCommerce and booking features, and develop custom layouts using CSS and code.</p></details>
+      <details><summary>Can you redesign my existing website without losing its content?<span aria-hidden="true"></span></summary><p>Yes. I can preserve your important pages, text, images and brand identity while improving the website's design, navigation, mobile experience and overall performance.</p></details>
+      <details><summary>Can you migrate my website to Squarespace?<span aria-hidden="true"></span></summary><p>Yes. I regularly migrate websites from WordPress, Wix, Google Sites and other platforms to Squarespace while maintaining the existing content and improving the structure where needed.</p></details>
+      <details><summary>Can you build from Figma, HTML or a design mockup?<span aria-hidden="true"></span></summary><p>Yes. I can accurately recreate approved designs, Figma layouts, HTML concepts or reference websites in Squarespace and make them responsive across desktop, tablet and mobile devices.</p></details>
+      <details><summary>How long does a Squarespace project take?<span aria-hidden="true"></span></summary><p>A standard website usually takes one to three weeks, depending on the number of pages, features and how quickly content and feedback are provided. Smaller updates and landing pages can often be completed sooner.</p></details>
+      <details><summary>Do I need to have all my content ready before we start?<span aria-hidden="true"></span></summary><p>Not necessarily. We can begin with the available content, and I can help organise it into a clear website structure. Final text, images and business information should be supplied before launch.</p></details>
+      <details><summary>Will my website work properly on mobile devices?<span aria-hidden="true"></span></summary><p>Yes. Every website is tested and optimised for desktop, tablet and mobile screens. I also review navigation, spacing, image presentation and button usability on smaller devices.</p></details>
+      <details><summary>Do you provide support after the website is launched?<span aria-hidden="true"></span></summary><p>Yes. I provide six months of support after launch for questions and minor technical issues related to the completed work. I can also provide ongoing maintenance when required.</p></details>
+      <details><summary>How will we manage the project through Upwork?<span aria-hidden="true"></span></summary><p>All communication, milestones, payments and project delivery can remain securely within Upwork. I provide clear progress updates and give you opportunities to review the website throughout the project.</p></details>
     </div>
   </div>
 </div></section>

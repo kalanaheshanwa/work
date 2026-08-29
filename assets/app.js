@@ -2,6 +2,28 @@
 (function () {
   "use strict";
 
+  /* ---- compact mobile navigation ---- */
+  var menuToggle = document.querySelector(".nav-menu-toggle");
+  var mobileNav = document.getElementById("mobile-nav");
+  function closeMobileNav() {
+    if (!menuToggle || !mobileNav) return;
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Open navigation");
+    mobileNav.hidden = true;
+  }
+  if (menuToggle && mobileNav) {
+    menuToggle.addEventListener("click", function () {
+      var open = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", open ? "false" : "true");
+      menuToggle.setAttribute("aria-label", open ? "Open navigation" : "Close navigation");
+      mobileNav.hidden = open;
+    });
+    [].slice.call(mobileNav.querySelectorAll("a")).forEach(function (link) {
+      link.addEventListener("click", closeMobileNav);
+    });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeMobileNav(); });
+  }
+
   /* ---- scroll reveal for cards ---- */
   var cards = [].slice.call(document.querySelectorAll(".card"));
   if (cards.length) {
@@ -77,8 +99,13 @@
   /* ---- interactive project process ---- */
   var processTabs = [].slice.call(document.querySelectorAll(".process-tab"));
   var processPanels = [].slice.call(document.querySelectorAll(".process-panel"));
+  var processCurrent = document.getElementById("process-current");
+  var processPrev = document.querySelector(".process-prev");
+  var processNext = document.querySelector(".process-next");
+  var processPips = [].slice.call(document.querySelectorAll(".process-pips span"));
   function selectProcessTab(tab, moveFocus) {
     var panelId = tab.getAttribute("aria-controls");
+    var activeIndex = processTabs.indexOf(tab);
     processTabs.forEach(function (item) {
       var active = item === tab;
       item.classList.toggle("is-active", active);
@@ -90,6 +117,11 @@
       panel.classList.toggle("is-active", active);
       panel.hidden = !active;
     });
+    processPips.forEach(function (pip, index) { pip.classList.toggle("is-active", index === activeIndex); });
+    if (processCurrent) processCurrent.textContent = String(activeIndex + 1);
+    if (processPrev) processPrev.disabled = activeIndex === 0;
+    if (processNext) processNext.disabled = activeIndex === processTabs.length - 1;
+    if (tab.scrollIntoView && window.innerWidth <= 760) tab.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
     if (moveFocus) tab.focus();
   }
   processTabs.forEach(function (tab, index) {
@@ -104,6 +136,14 @@
       if (e.key === "End") next = processTabs.length - 1;
       selectProcessTab(processTabs[next], true);
     });
+  });
+  if (processPrev) processPrev.addEventListener("click", function () {
+    var index = processTabs.findIndex(function (tab) { return tab.classList.contains("is-active"); });
+    if (index > 0) selectProcessTab(processTabs[index - 1], false);
+  });
+  if (processNext) processNext.addEventListener("click", function () {
+    var index = processTabs.findIndex(function (tab) { return tab.classList.contains("is-active"); });
+    if (index < processTabs.length - 1) selectProcessTab(processTabs[index + 1], false);
   });
 
   /* ---- lightbox for full-site screenshots ---- */

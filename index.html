@@ -16,7 +16,8 @@
 <body>
 <script>document.documentElement.className+=' js';</script><header class="topbar"><div class="wrap">
   <a class="brand" href="index.html"><span class="mark"></span><b>Kalana&nbsp;Square</b><span>&nbsp;/ Work</span></a>
-  <nav><a href="#portfolio">Work</a><a href="#reviews">Reviews</a><a href="#about">About</a><a class="nav-linkedin" href="https://www.linkedin.com/in/kalanaheshan/" target="_blank" rel="noopener" aria-label="View Kalana Heshan on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.25H3.25V18.5H6.5V8.25ZM4.88 3.5a1.88 1.88 0 1 0 0 3.75 1.88 1.88 0 0 0 0-3.75ZM18.75 12.63c0-3.08-1.64-4.51-3.83-4.51a3.3 3.3 0 0 0-3 1.65V8.25H8.67V18.5h3.25v-5.08c0-1.34.25-2.64 1.91-2.64 1.64 0 1.66 1.53 1.66 2.73v4.99h3.26v-5.87Z"/></svg></a><a class="nav-hire" href="https://www.upwork.com/freelancers/kalanaheshan" target="_blank" rel="noopener">Hire on Upwork&nbsp;↗</a></nav>
+  <nav aria-label="Primary navigation"><a href="#portfolio">Work</a><a href="#reviews">Reviews</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#about">About</a><a class="nav-linkedin" href="https://www.linkedin.com/in/kalanaheshan/" target="_blank" rel="noopener" aria-label="View Kalana Heshan on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.25H3.25V18.5H6.5V8.25ZM4.88 3.5a1.88 1.88 0 1 0 0 3.75 1.88 1.88 0 0 0 0-3.75ZM18.75 12.63c0-3.08-1.64-4.51-3.83-4.51a3.3 3.3 0 0 0-3 1.65V8.25H8.67V18.5h3.25v-5.08c0-1.34.25-2.64 1.91-2.64 1.64 0 1.66 1.53 1.66 2.73v4.99h3.26v-5.87Z"/></svg></a><a class="nav-hire" href="https://www.upwork.com/freelancers/kalanaheshan" target="_blank" rel="noopener">Hire on Upwork&nbsp;↗</a><button class="nav-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation"><span></span><span></span></button></nav>
+  <div class="mobile-nav" id="mobile-nav" hidden><a href="#portfolio">Work</a><a href="#reviews">Reviews</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#about">About</a></div>
 </div></header>
 <section class="hero" id="work">
   <div class="glow"></div>
@@ -502,34 +503,41 @@
 <section class="process" id="process"><div class="wrap">
   <div class="process-head">
     <span class="eyebrow">My process</span>
-    <h2 class="display">A clear process from brief to launch</h2>
-    <p>I use a clear, collaborative workflow that keeps your Squarespace project organised from our first conversation through launch and post-project support.</p>
+    <h2 class="display">How your Squarespace project moves forward</h2>
+    <p>A structured five-stage workflow keeps decisions clear, feedback focused and your project moving confidently towards launch.</p>
   </div>
   <div class="process-card">
+    <div class="process-top"><div class="process-current"><span id="process-current">1</span> / 5</div><div class="process-arrows"><button class="process-arrow process-prev" type="button" aria-label="Previous process step" disabled>&larr;</button><button class="process-arrow process-next" type="button" aria-label="Next process step">&rarr;</button></div></div>
     <div class="process-tabs" role="tablist" aria-label="Website project process">
-      <button class="process-tab is-active" id="process-tab-1" role="tab" aria-selected="true" aria-controls="process-panel-1" tabindex="0" data-step="1"><span>01</span><b>Discovery &amp; Planning</b></button>
-      <button class="process-tab" id="process-tab-2" role="tab" aria-selected="false" aria-controls="process-panel-2" tabindex="-1" data-step="2"><span>02</span><b>Content Preparation</b></button>
-      <button class="process-tab" id="process-tab-3" role="tab" aria-selected="false" aria-controls="process-panel-3" tabindex="-1" data-step="3"><span>03</span><b>Design &amp; Development</b></button>
-      <button class="process-tab" id="process-tab-4" role="tab" aria-selected="false" aria-controls="process-panel-4" tabindex="-1" data-step="4"><span>04</span><b>Feedback &amp; Revisions</b></button>
-      <button class="process-tab" id="process-tab-5" role="tab" aria-selected="false" aria-controls="process-panel-5" tabindex="-1" data-step="5"><span>05</span><b>Launch &amp; Support</b></button>
+      <button class="process-tab is-active" id="process-tab-1" role="tab" aria-selected="true" aria-controls="process-panel-1" tabindex="0" data-step="1"><span>01</span><b>Project Alignment</b></button>
+      <button class="process-tab" id="process-tab-2" role="tab" aria-selected="false" aria-controls="process-panel-2" tabindex="-1" data-step="2"><span>02</span><b>Content &amp; Direction</b></button>
+      <button class="process-tab" id="process-tab-3" role="tab" aria-selected="false" aria-controls="process-panel-3" tabindex="-1" data-step="3"><span>03</span><b>Squarespace Build</b></button>
+      <button class="process-tab" id="process-tab-4" role="tab" aria-selected="false" aria-controls="process-panel-4" tabindex="-1" data-step="4"><span>04</span><b>Review &amp; Refine</b></button>
+      <button class="process-tab" id="process-tab-5" role="tab" aria-selected="false" aria-controls="process-panel-5" tabindex="-1" data-step="5"><span>05</span><b>Launch &amp; Handover</b></button>
     </div>
     <div class="process-panels">
       <div class="process-panel is-active" id="process-panel-1" role="tabpanel" aria-labelledby="process-tab-1">
-        <div class="process-count">01 <span>/ 05</span></div><div><h3>Discovery &amp; Planning</h3><p>I begin with a discovery call to understand your business, goals, target audience, required pages, preferred style and functionality. After the call, I provide a clear proposal, project scope, timeline and fixed price where appropriate.</p></div>
+        <div class="process-left"><div class="process-bg-num" aria-hidden="true">01</div><div class="process-icon" aria-hidden="true">&#9671;</div><span class="process-kicker">Project alignment</span><h3>Turning your brief into a workable roadmap</h3><p>We start by clarifying what the website must achieve, who it needs to serve and which features matter most. I then translate those priorities into a practical plan for the build.</p><div class="process-tags"><span>Business goals</span><span>Audience</span><span>Priorities</span></div></div>
+        <div class="process-right"><h4>You receive</h4><ul><li>Defined project scope</li><li>Recommended page list</li><li>Delivery schedule</li><li>Confirmed project cost</li></ul><div class="process-outcome"><span>&#10003;</span><div><small>In short</small><b>A shared plan before design begins</b></div></div></div>
       </div>
       <div class="process-panel" id="process-panel-2" role="tabpanel" aria-labelledby="process-tab-2" hidden>
-        <div class="process-count">02 <span>/ 05</span></div><div><h3>Content &amp; Design Preparation</h3><p>I collect your logo, brand colours, written content, images, inspiration and technical requirements. When needed, I can also help organise your content, recommend imagery and establish a visual direction.</p></div>
+        <div class="process-left"><div class="process-bg-num" aria-hidden="true">02</div><div class="process-icon" aria-hidden="true">&#9638;</div><span class="process-kicker">Content &amp; direction</span><h3>Preparing everything the website needs</h3><p>Your copy, imagery, branding and examples are organised into one clear system. If anything is missing, I identify it early and help shape a visual direction that fits your market.</p><div class="process-tags"><span>Content review</span><span>Brand assets</span><span>Visual direction</span></div></div>
+        <div class="process-right"><h4>You receive</h4><ul><li>Content inventory</li><li>Organised brand assets</li><li>Reference direction</li><li>Missing-content checklist</li></ul><div class="process-outcome"><span>&#10003;</span><div><small>In short</small><b>Prepared assets and an agreed direction</b></div></div></div>
       </div>
       <div class="process-panel" id="process-panel-3" role="tabpanel" aria-labelledby="process-tab-3" hidden>
-        <div class="process-count">03 <span>/ 05</span></div><div><h3>Design &amp; Development</h3><p>I design and build your website in Squarespace, creating responsive layouts that reflect your brand and work across desktop, tablet and mobile devices. You receive access to a live version during development.</p></div>
+        <div class="process-left"><div class="process-bg-num" aria-hidden="true">03</div><div class="process-icon" aria-hidden="true">&lt;/&gt;</div><span class="process-kicker">Squarespace build</span><h3>Bringing the approved direction to life</h3><p>I build the pages directly in Squarespace, creating a consistent visual system and responsive layouts. Required integrations, eCommerce features and custom code are added as the site takes shape.</p><div class="process-tags"><span>Responsive design</span><span>Integrations</span><span>Custom code</span></div></div>
+        <div class="process-right"><h4>You receive</h4><ul><li>Responsive page layouts</li><li>Reusable design system</li><li>Required integrations</li><li>Live review access</li></ul><div class="process-outcome"><span>&#10003;</span><div><small>In short</small><b>A working Squarespace site ready to review</b></div></div></div>
       </div>
       <div class="process-panel" id="process-panel-4" role="tabpanel" aria-labelledby="process-tab-4" hidden>
-        <div class="process-count">04 <span>/ 05</span></div><div><h3>Feedback &amp; Revisions</h3><p>You review the website and share feedback through a simple commenting process. I implement the agreed revisions and refine the website until the key details are ready for launch.</p></div>
+        <div class="process-left"><div class="process-bg-num" aria-hidden="true">04</div><div class="process-icon" aria-hidden="true">&#9998;</div><span class="process-kicker">Review &amp; refine</span><h3>Improving the details through focused feedback</h3><p>You review the live build and leave comments in one organised place. I work through the agreed changes, resolve layout issues and complete a final content and device check.</p><div class="process-tags"><span>Simple feedback</span><span>Revisions</span><span>Quality check</span></div></div>
+        <div class="process-right"><h4>You receive</h4><ul><li>Commenting workspace</li><li>Agreed revision rounds</li><li>Cross-device refinements</li><li>Final content review</li></ul><div class="process-outcome"><span>&#10003;</span><div><small>In short</small><b>A polished website aligned with your feedback</b></div></div></div>
       </div>
       <div class="process-panel" id="process-panel-5" role="tabpanel" aria-labelledby="process-tab-5" hidden>
-        <div class="process-count">05 <span>/ 05</span></div><div><h3>Launch &amp; Support</h3><p>I connect the domain, check forms and links, configure basic SEO, connect Google Search Console and Analytics where required, submit the sitemap and prepare the website for launch. You also receive a training video and six months of post-launch support for minor issues.</p></div>
+        <div class="process-left"><div class="process-bg-num" aria-hidden="true">05</div><div class="process-icon" aria-hidden="true">&#8599;</div><span class="process-kicker">Launch &amp; handover</span><h3>Going live with confidence</h3><p>Once approved, I connect the domain, test key journeys and complete the essential SEO and analytics setup. A personalised walkthrough makes day-to-day website management straightforward after launch.</p><div class="process-tags"><span>Launch checks</span><span>SEO setup</span><span>Training</span></div></div>
+        <div class="process-right"><h4>You receive</h4><ul><li>Domain and form checks</li><li>Core SEO configuration</li><li>Training walkthrough</li><li>Six months of support</li></ul><div class="process-outcome"><span>&#10003;</span><div><small>In short</small><b>A live website you can manage confidently</b></div></div></div>
       </div>
     </div>
+    <div class="process-pips" aria-hidden="true"><span class="is-active"></span><span></span><span></span><span></span><span></span></div>
   </div>
 </div></section>
 

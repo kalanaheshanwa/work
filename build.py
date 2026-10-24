@@ -115,6 +115,7 @@ CATS = [
 PROJECTS = [
     {
         "slug": "hound-and-turf",
+        "hidden": True,
         "title": "Hound & Turf — Premium Local Service Website",
         "client": "Hound & Turf",
         "cat_slugs": ["business"],
@@ -132,6 +133,7 @@ PROJECTS = [
 
     {
         "slug": "with-gleam",
+        "hidden": True,
         "title": "With Gleam — Booking-Focused Squarespace Rebuild",
         "client": "With Gleam",
         "cat_slugs": ["health", "beauty"],
@@ -153,6 +155,7 @@ PROJECTS = [
     },
     {
         "slug": "youthful-by-rosie",
+        "hidden": True,
         "title": "Youthful by Rosie — Figma to Squarespace Website",
         "client": "Youthful by Rosie",
         "cat_slugs": ["beauty", "health"],
@@ -169,6 +172,7 @@ PROJECTS = [
     },
     {
         "slug": "shauna-moran-impact-amplification",
+        "hidden": True,
         "title": "Shauna Moran — Impact Amplification Program Page",
         "client": "Shauna Moran",
         "cat_slugs": ["business"],
@@ -450,6 +454,7 @@ PROJECTS = [
     },
     {
         "slug": "html-to-squarespace",
+        "hidden": True,
         "title": "Claude, HTML & Figma → Squarespace",
         "client": "Conversion projects",
         "cat_slugs": ["convert"],
@@ -742,13 +747,14 @@ def head(title, desc, css_rel):
 
 # ---------------- index ----------------
 def build_index():
+    visible_projects = [p for p in PROJECTS if not p.get("hidden")]
     chips = ""
     for slug, label in CATS:
         pressed = "true" if slug == "all" else "false"
         chips += f'<button class="chip" data-cat="{slug}" aria-pressed="{pressed}">{E(label)}</button>'
 
     cards = ""
-    for i, p in enumerate(PROJECTS, 1):
+    for i, p in enumerate(visible_projects, 1):
         cats = "|".join(p["cat_slugs"])
         href = f'projects/{p["slug"]}.html'
         cards += f"""
@@ -791,8 +797,8 @@ def build_index():
     )
     html_doc += topbar_index()
     hv = lambda p: f'<a class="hv-card" href="#portfolio"><img loading="lazy" src="{hero_url(p["hero"],"640w")}" alt=""></a>'
-    colA = "".join(hv(p) for p in PROJECTS[0::2])
-    colB = "".join(hv(p) for p in PROJECTS[1::2])
+    colA = "".join(hv(p) for p in visible_projects[0::2])
+    colB = "".join(hv(p) for p in visible_projects[1::2])
     chk = '<svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'
     arw = '<svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>'
     brand_items = "".join(f'<span class="blogo"><img src="{u}" alt="{E(n)}" loading="lazy"></span>' for n, u in LOGOS)

@@ -89,6 +89,8 @@ TESTIMONIALS = [
 ]
 
 def img(path, fmt):
+    if path.startswith("http://") or path.startswith("https://"):
+        return path
     # path is the part after /content/ ; add format sizing, strip any junk
     base = path.split("?")[0]
     return f"{CDN}/{base}?format={fmt}"

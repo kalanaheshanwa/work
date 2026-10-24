@@ -112,6 +112,22 @@ CATS = [
 # Each project. screenshot/hero are the path AFTER /content/  (no domain).
 PROJECTS = [
     {
+        "slug": "hound-and-turf",
+        "title": "Hound & Turf — Premium Local Service Website",
+        "client": "Hound & Turf",
+        "cat_slugs": ["business"],
+        "cat_label": "Professional Services",
+        "duration": "2 Weeks",
+        "industry": "Local Services",
+        "tech": ["Squarespace", "Fluid Engine", "Local SEO", "Forms"],
+        "sub": "A premium, mobile-first local service website built around a clear quote journey for dog-owning households in Horsham.",
+        "overview": "Hound & Turf had the business strategy, copy and service structure in place, but needed the Squarespace site turned into a distinctive, launch-ready experience. The challenge was to feel premium and specialist without looking like a generic cleaning company, gardening template or overly cute pet brand.",
+        "solution_p": "I designed and developed the Squarespace 7.1 site around clear service routes, repeated quote calls to action and an easy photo-led enquiry journey. I added a structured quote form with photo uploads, WhatsApp/call/email contact options, responsive Fluid Engine layouts, local service-area content and basic on-page SEO while keeping the site easy for the owner to update.",
+        "hero": "https://kalanaheshanwa.github.io/work/assets/portfolio/hound-and-turf.svg",
+        "shot": "https://kalanaheshanwa.github.io/work/assets/portfolio/hound-and-turf.svg",
+        "shot_url": "Hound & Turf — Horsham, West Sussex",
+    },
+    {
         "slug": "chemoclub",
         "title": "ChemoClub Squarespace Website",
         "client": "ChemoClub",

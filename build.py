@@ -200,10 +200,12 @@ PROJECTS = [
         "overview": "The vacation rental owner\u2019s Wix website was cluttered, hard to navigate and slow to use on mobile. Guests could not quickly compare the Hilltop Hideaway and Happyplace Hideaway properties, and the confusing layout pushed visitors back to Airbnb instead of booking direct.",
         "solution_p": "I rebuilt the whole site on Squarespace with a clean homepage that leads straight to each property, then gave Hilltop Hideaway and Happyplace Hideaway their own pages with galleries, amenities, sleeping arrangements, rules and an availability calendar. A simple pricing and availability request form, clear direct-booking messaging and a tidy mobile layout make it easy for large groups to enquire.",
         "hero": "https://images.squarespace-cdn.com/content/69cdfa4b7e96fb29aceec739/8a2ecb65-55d3-432f-9d6b-0c8d49a2b560/texashideawaystays-cover.jpg",
-        "shot": "https://images.squarespace-cdn.com/content/69cdfa4b7e96fb29aceec739/6173da13-9da3-4c38-85ce-e9c0b180c377/texashideawaystays-home-full.webp",
+        "shot": "https://kalanaheshanwa.github.io/work/assets/portfolio/texas-hideaway-home.webp",
         "shot_url": "texashideawaystays.com",
-        "extra_shots": ["https://kalanaheshanwa.github.io/work/assets/portfolio/texas-hideaway-hilltop.webp", "https://kalanaheshanwa.github.io/work/assets/portfolio/texas-hideaway-happyplace.webp", "https://kalanaheshanwa.github.io/work/assets/portfolio/texas-hideaway-pricing.webp"],
-    },
+        "before_label": "Old Wix website \u2014 before",
+        "before_url": "Old Wix website (before the rebuild)",
+        "before_shots": ["https://kalanaheshanwa.github.io/work/assets/portfolio/texas-hideaway-wix-home.webp", "https://kalanaheshanwa.github.io/work/assets/portfolio/texas-hideaway-wix-hilltop.webp", "https://kalanaheshanwa.github.io/work/assets/portfolio/texas-hideaway-wix-happyplace.webp", "https://kalanaheshanwa.github.io/work/assets/portfolio/texas-hideaway-wix-pricing.webp"],
+            },
     {
         "slug": "irwin-rommel-suba",
         "title": "Irwin Rommel Suba \u2014 Photographer Portfolio Website on Squarespace",
@@ -1812,6 +1814,20 @@ def preview_section(p):
   </div>
 </div></section>"""
 
+def before_section(p):
+    shots = p.get("before_shots")
+    if not shots:
+        return ""
+    name = E(p["client"])
+    imgs = "".join(f'<img loading="lazy" src="{u}" alt="{name} old Wix website screenshot {n+1}">' for n, u in enumerate(shots))
+    return f"""<section class="preview before"><div class="wrap">
+  <div class="label"><span class="eyebrow">{E(p.get('before_label','Before'))}</span><span class="hint">Scroll inside the frame \u00b7 click to enlarge</span></div>
+  <div class="shot" data-zoom="{shots[0]}" data-name="{name} \u2014 old Wix website">
+    <div class="bar"><i></i><i></i><i></i><span class="url">{E(p.get('before_url',''))}</span><span class="z">\u2922 zoom</span></div>
+    <div class="scroller">{imgs}</div>
+  </div>
+</div></section>"""
+
 def pager(idx):
     prev_a = next_a = ""
     if idx > 0:
@@ -1852,6 +1868,7 @@ def build_project(idx, p):
   {solution_block(p)}
 </div></div></section>"""
         doc += preview_section(p)
+        doc += before_section(p)
 
     if p.get("feedback"):
         fb = p["feedback"]

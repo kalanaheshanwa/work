@@ -50,25 +50,58 @@
   var empty = document.getElementById("empty");
   var countEl = document.getElementById("count");
 
-  function applyFilter(cat) {
-    var shown = 0;
+  var STEP = 12;
+  var limit = STEP;
+  var currentCat = "all";
+  var gridWrap = document.getElementById("grid-wrap");
+  var moreBar = document.getElementById("more-bar");
+  var moreBtn = document.getElementById("more-btn");
+  var moreLeft = document.getElementById("more-left");
+
+  function layout(revealFrom) {
+    var shown = 0, total = 0;
     cards.forEach(function (card) {
       var cats = (card.getAttribute("data-cats") || "").split("|");
-      var match = cat === "all" || cats.indexOf(cat) !== -1;
+      var match = currentCat === "all" || cats.indexOf(currentCat) !== -1;
       card.classList.toggle("hide", !match);
-      if (match) {
+      if (!match) { card.classList.remove("more"); return; }
+      total++;
+      var beyond = total > limit;
+      card.classList.toggle("more", beyond);
+      if (!beyond) {
         shown++;
-        card.classList.remove("in");
-        // re-trigger reveal
-        // eslint-disable-next-line no-unused-expressions
-        card.offsetHeight;
-        requestAnimationFrame(function () {
-          setTimeout(function () { card.classList.add("in"); }, (shown % 9) * 40);
-        });
+        if (revealFrom === undefined || total > revealFrom) {
+          card.classList.remove("in");
+          // eslint-disable-next-line no-unused-expressions
+          card.offsetHeight;
+          (function (c, n) {
+            requestAnimationFrame(function () {
+              setTimeout(function () { c.classList.add("in"); }, n * 40);
+            });
+          })(card, revealFrom === undefined ? shown % 9 : (total - revealFrom - 1) % 9);
+        }
       }
     });
-    if (countEl) countEl.textContent = String(shown).padStart(2, "0") + " / " + String(cards.length).padStart(2, "0");
-    if (empty) empty.style.display = shown === 0 ? "block" : "none";
+    var left = total - shown;
+    if (gridWrap) gridWrap.classList.toggle("is-collapsed", left > 0);
+    if (moreBar) moreBar.classList.toggle("show", left > 0);
+    if (moreLeft) moreLeft.textContent = left > 0 ? "(" + left + " more)" : "";
+    if (countEl) countEl.textContent = String(total).padStart(2, "0") + " / " + String(cards.length).padStart(2, "0");
+    if (empty) empty.style.display = total === 0 ? "block" : "none";
+  }
+
+  function applyFilter(cat) {
+    currentCat = cat;
+    limit = STEP;
+    layout();
+  }
+
+  if (moreBtn) {
+    moreBtn.addEventListener("click", function () {
+      var from = limit;
+      limit += STEP;
+      layout(from);
+    });
   }
 
   chips.forEach(function (chip) {
@@ -91,8 +124,8 @@
       chips.forEach(function (c) { c.setAttribute("aria-pressed", "false"); });
       target.setAttribute("aria-pressed", "true");
       applyFilter(hash);
-    } else if (countEl) {
-      countEl.textContent = String(cards.length).padStart(2, "0") + " / " + String(cards.length).padStart(2, "0");
+    } else {
+      layout();
     }
   }
 

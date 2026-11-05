@@ -912,3 +912,62 @@ html{scroll-padding-top:76px}
 @media(max-width:1020px){.wyg-panel{grid-template-columns:1fr;gap:40px;padding:56px 36px}.wyg-intro{position:static}}
 @media(max-width:640px){.wyg{padding-bottom:70px}.wyg-panel{padding:40px 20px;border-radius:22px}
   .wyg-list{grid-template-columns:1fr}.wyg-group{padding:20px 18px 6px}.wyg-stat strong{font-size:52px}}
+
+/* ---------- v3: hero stats on mobile, services slider, full-width what-you-get ---------- */
+@media(max-width:700px){
+  .stats{flex-wrap:nowrap;justify-content:space-between;gap:10px;margin-top:24px;padding-top:18px}
+  .stats .stat{flex:1 1 0;min-width:0}
+  .stats .stat .n{font-size:20px}
+  .stats .stat .l{font-size:9px;letter-spacing:.05em;line-height:1.3;margin-top:6px}
+}
+.services{overflow-x:clip}
+.services-v2-wrap{--gut:max(28px,calc((100vw - var(--maxw))/2 + 28px));position:relative;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);margin-top:14px}
+.services-v2-wrap .bento-grid{display:flex;flex-direction:row;align-items:stretch;gap:18px;overflow-x:auto;overscroll-behavior-x:contain;
+  scroll-snap-type:x proximity;scroll-padding-left:var(--gut);padding:8px var(--gut) 28px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.services-v2-wrap .bento-grid::-webkit-scrollbar{display:none}
+.services-v2-wrap .v2c{flex:0 0 min(420px,82vw);grid-column:auto;scroll-snap-align:start}
+.services-v2-wrap .v2c.span-7,.services-v2-wrap .v2c.span-8,.services-v2-wrap .v2c.span-12{flex-basis:min(780px,88vw)}
+.svc-arrows{display:flex;justify-content:flex-end;gap:10px;margin-top:26px}
+.svc-arrow{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;cursor:pointer;color:var(--ink);background:var(--surface);
+  border:1px solid var(--hairline-2);box-shadow:var(--shadow);transition:background .2s,color .2s,transform .2s,opacity .2s}
+.svc-arrow svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.svc-arrow:hover:not(:disabled){background:var(--ink);color:#fff;transform:translateY(-2px)}
+.svc-arrow:disabled{opacity:.35;cursor:default;box-shadow:none}
+@media(max-width:700px){.svc-arrows{margin-top:18px}.svc-arrow{width:42px;height:42px}}
+
+.wyg{position:relative;overflow:hidden;background:#101214;color:#fff;padding:96px 0 104px}
+.wyg::before{content:"";position:absolute;left:-10%;top:-40%;width:60%;height:100%;pointer-events:none;
+  background:radial-gradient(closest-side,color-mix(in srgb,var(--accent) 34%,transparent),transparent)}
+.wyg::after{content:"";position:absolute;right:-10%;bottom:-45%;width:50%;height:90%;pointer-events:none;
+  background:radial-gradient(closest-side,color-mix(in srgb,var(--accent-2) 16%,transparent),transparent)}
+.wyg>.wrap{position:relative;z-index:1;max-width:1360px}
+.wyg-panel{display:block;background:none;box-shadow:none;border-radius:0;padding:0;overflow:visible;gap:0}
+.wyg-panel::before,.wyg-panel::after{display:none}
+.wyg-intro{position:static;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);column-gap:64px;row-gap:0;align-items:end;margin-bottom:56px;
+  grid-template-areas:"eyebrow stat" "title stat" "lede cta"}
+.wyg-intro .eyebrow{grid-area:eyebrow}
+.wyg-intro h2{grid-area:title;max-width:18ch;font-size:clamp(36px,4.6vw,64px)}
+.wyg-intro>p{grid-area:lede;max-width:56ch;font-size:18px}
+.wyg-stat{grid-area:stat;margin:0;padding:0;border:0;justify-self:end;align-self:start}
+.wyg .wyg-cta{grid-area:cta;justify-self:end;margin-top:20px}
+.wyg-groups{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.wyg-group{padding:30px 28px 14px;display:flex;flex-direction:column}
+.wyg-gh{margin-bottom:12px}
+.wyg-gh h3{font-size:20px}
+.wyg-list{grid-template-columns:1fr;gap:0}
+.wyg-list li{padding:18px 0 20px}
+.wyg-list b{font-size:16.5px;line-height:1.35}
+.wyg-list span{font-size:15px;line-height:1.6;color:rgba(255,255,255,.74);margin-top:6px}
+.wyg-chk{width:22px;height:22px;margin-top:0}
+@media(max-width:1180px){.wyg-groups{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){
+  .wyg-intro{grid-template-columns:1fr;grid-template-areas:"eyebrow" "title" "lede" "stat" "cta";margin-bottom:40px}
+  .wyg-stat{justify-self:start;margin-top:28px}
+  .wyg .wyg-cta{justify-self:start}
+}
+@media(max-width:640px){
+  .wyg::before{left:-30%;top:-20%;width:140%;height:60%}
+  .wyg{padding:64px 0 72px}
+  .wyg-groups{grid-template-columns:1fr;gap:14px}
+  .wyg-group{padding:24px 20px 8px}
+}

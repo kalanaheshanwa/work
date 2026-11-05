@@ -235,3 +235,31 @@
     }
   });
 })();
+
+/* ---- services slider arrows ---- */
+(function () {
+  "use strict";
+  var wrap = document.querySelector(".services-v2-wrap");
+  var track = wrap && wrap.querySelector(".bento-grid");
+  if (!wrap || !track) return;
+  var bar = document.createElement("div");
+  bar.className = "svc-arrows";
+  var ico = function (d) { return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="' + d + '"/></svg>'; };
+  bar.innerHTML = '<button type="button" class="svc-arrow" data-dir="-1" aria-label="Previous services">' + ico("M15 5l-7 7 7 7") + '</button>' +
+                  '<button type="button" class="svc-arrow" data-dir="1" aria-label="Next services">' + ico("M9 5l7 7-7 7") + '</button>';
+  wrap.parentNode.insertBefore(bar, wrap);
+  var prev = bar.children[0], next = bar.children[1];
+  function step() { var c = track.querySelector(".v2c"); return (c ? c.getBoundingClientRect().width : 400) + 18; }
+  function update() {
+    prev.disabled = track.scrollLeft <= 4;
+    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+  }
+  bar.addEventListener("click", function (e) {
+    var b = e.target.closest(".svc-arrow");
+    if (!b) return;
+    track.scrollBy({ left: step() * Number(b.getAttribute("data-dir")), behavior: "smooth" });
+  });
+  track.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+  update();
+})();

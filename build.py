@@ -1355,8 +1355,8 @@ def topbar():
 def topbar_index():
     return f"""<header class="topbar"><div class="wrap">
   <a class="brand" href="index.html"><span class="mark"></span><b>Kalana&nbsp;Square</b><span>&nbsp;/ Work</span></a>
-  <nav aria-label="Primary navigation"><a href="#portfolio">Work</a><a href="#reviews">Reviews</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#about">About</a><a class="nav-linkedin" href="{LINKEDIN}" target="_blank" rel="noopener" aria-label="View Kalana Heshan on LinkedIn">{LINKEDIN_ICON}</a><a class="nav-hire" href="{UPWORK}" target="_blank" rel="noopener">Hire on Upwork&nbsp;\u2197</a><button class="nav-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation"><span></span><span></span></button></nav>
-  <div class="mobile-nav" id="mobile-nav" hidden><a href="#portfolio">Work</a><a href="#reviews">Reviews</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#about">About</a></div>
+  <nav aria-label="Primary navigation"><a href="#portfolio">Work</a><a class="nav-get" href="#what-you-get">What you get</a><a href="#reviews">Reviews</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#about">About</a><a class="nav-linkedin" href="{LINKEDIN}" target="_blank" rel="noopener" aria-label="View Kalana Heshan on LinkedIn">{LINKEDIN_ICON}</a><a class="nav-hire" href="{UPWORK}" target="_blank" rel="noopener">Hire on Upwork&nbsp;\u2197</a><button class="nav-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation"><span></span><span></span></button></nav>
+  <div class="mobile-nav" id="mobile-nav" hidden><a href="#portfolio">Work</a><a class="nav-get" href="#what-you-get">What you get</a><a href="#reviews">Reviews</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#about">About</a></div>
 </div></header>"""
 
 def footer(rel=""):
@@ -1499,10 +1499,40 @@ def build_index():
 </div></div>
 
 <main class="gallery"><div class="wrap">
-  <div class="grid" id="grid">{cards}
+  <div class="grid-wrap" id="grid-wrap">
+    <div class="grid" id="grid">{cards}
+    </div>
   </div>
   <div class="empty" id="empty">No projects in this category yet.</div>
+  <div class="more-bar" id="more-bar"><button class="more-btn" id="more-btn" type="button">See more projects <span id="more-left"></span><i aria-hidden="true">\u2193</i></button></div>
 </div></main>
+
+<section class="wyg" id="what-you-get"><div class="wrap">
+  <div class="wyg-head">
+    <span class="eyebrow">What you get</span>
+    <h2 class="display">Everything included in your Squarespace project</h2>
+    <p>Whatever type of website you need, this is what comes with it \u2014 so you know exactly what you\u2019re getting before we start.</p>
+  </div>
+  <div class="wyg-grid">
+    <div class="wyg-item"><span class="wyg-n">01</span><h3>Revisions until you\u2019re happy</h3><p>We refine the design together until it feels right.</p></div>
+    <div class="wyg-item"><span class="wyg-n">02</span><h3>Strong SEO foundations</h3><p>Clean structure, titles and descriptions so Google understands your site.</p></div>
+    <div class="wyg-item"><span class="wyg-n">03</span><h3>Works on every device</h3><p>Looks and works great on desktop, tablet and phone.</p></div>
+    <div class="wyg-item"><span class="wyg-n">04</span><h3>Layout that gets enquiries</h3><p>Clear buttons and a simple path to contact, book or buy.</p></div>
+    <div class="wyg-item"><span class="wyg-n">05</span><h3>Easy to edit yourself</h3><p>Change text, photos and pages in minutes, no developer needed.</p></div>
+    <div class="wyg-item"><span class="wyg-n">06</span><h3>Up to 25% off Squarespace</h3><p>New to Squarespace? Get up to 25% off your first plan.</p></div>
+    <div class="wyg-item"><span class="wyg-n">07</span><h3>6 months of support</h3><p>Small updates and fixes after launch are covered.</p></div>
+    <div class="wyg-item"><span class="wyg-n">08</span><h3>Video guide for your site</h3><p>A recorded walkthrough of your own website showing how to edit it.</p></div>
+    <div class="wyg-item"><span class="wyg-n">09</span><h3>Google Analytics &amp; Search Console</h3><p>Set up so you can see your traffic and Google finds your site fast.</p></div>
+    <div class="wyg-item"><span class="wyg-n">10</span><h3>Domain &amp; email help</h3><p>I connect your domain and email, so you never touch DNS.</p></div>
+    <div class="wyg-item"><span class="wyg-n">11</span><h3>Fast-loading pages</h3><p>Compressed images and a lightweight layout keep your site quick.</p></div>
+    <div class="wyg-item"><span class="wyg-n">12</span><h3>Content &amp; page structure help</h3><p>No sitemap yet? I plan your pages and flow with you.</p></div>
+    <div class="wyg-item"><span class="wyg-n">13</span><h3>Pre-launch checklist</h3><p>Forms, links, mobile and SEO tested before launch, and the results shared.</p></div>
+    <div class="wyg-item"><span class="wyg-n">14</span><h3>Booking, shop &amp; forms</h3><p>Appointments, online store and contact forms set up and tested.</p></div>
+    <div class="wyg-item"><span class="wyg-n">15</span><h3>Brand polish</h3><p>Consistent fonts, colours and images so it looks professionally designed.</p></div>
+    <div class="wyg-item"><span class="wyg-n">16</span><h3>Clear communication</h3><p>Regular updates and milestones, all kept inside Upwork.</p></div>
+  </div>
+  <div class="wyg-cta"><a class="cta" href="{UPWORK}" target="_blank" rel="noopener">Start your project on Upwork <span class="arr">\u2197</span></a><a class="cta ghost" href="#portfolio">Browse the work</a></div>
+</div></section>
 
 <section class="reviews" id="reviews">
   <div class="wrap rev-head">
